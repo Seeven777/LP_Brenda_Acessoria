@@ -30,8 +30,57 @@ function showDialog(dialog){if(!dialog.open){dialog.showModal();document.body.cl
 function hideDialog(dialog){if(dialog.open)dialog.close();document.body.classList.remove("dialog-open")}
 [leadDialog,reelDialog].forEach(d=>d.addEventListener("close",()=>document.body.classList.remove("dialog-open")));
 
+
+// Licensed player embeds from verified official Brendi videos on YouTube.
+// Videos are not downloaded, hosted, or copied into this site.
+const demoDialog=$("#demo-dialog"),demoFrame=$("#demo-frame"),demoButtons=$(".demo-card");
+let previousDemoFocus=null;
+function closeDemo(){
+ hideDialog(demoDialog);
+ demoFrame.removeAttribute("src");
+ if(previousDemoFocus?.focus)previousDemoFocus.focus({preventScroll:true});
+}
+demoButtons.forEach(button=>button.addEventListener("click",()=>{
+ previousDemoFocus=button;
+ const id=button.dataset.videoId;
+ const start=Number(button.dataset.start||0);
+ if(!/^[A-Za-z0-9_-]{11}$/.test(id))return;
+ $("#demo-dialog-title").textContent=button.dataset.demoTitle;
+ $("#demo-original").href="https://www.youtube.com/watch?v="+encodeURIComponent(id);
+ demoFrame.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id)+"?rel=0&autoplay=1&playsinline=1"+(start?"&start="+start:"");
+ showDialog(demoDialog);
+ $("#demo-close").focus({preventScroll:true});
+}));
+$("#demo-close").addEventListener("click",closeDemo);
+demoDialog.addEventListener("click",e=>{if(e.target===demoDialog)closeDemo()});
+demoDialog.addEventListener("close",()=>demoFrame.removeAttribute("src"));
+
 // All eight links provided by the owner; user-initiated official Instagram embed.
 const reelCards=$$(".reel-card"),reelIds=reelCards.map(card=>card.dataset.reelId),frame=$("#reel-iframe"),loader=$("#reel-loading");let reelIndex=0;
+// Lazy-load publisher-native thumbnails in the gallery, never static imitation images.
+function loadReelCover(card){
+ const id=card.dataset.reelId,slot=$(".reel-cover-preview",card);
+ if(!slot||slot.dataset.requested==="true"||!/^[A-Za-z0-9_-]{11}$/.test(id))return;
+ slot.dataset.requested="true";
+ const preview=document.createElement("iframe");
+ preview.className="reel-cover-iframe";
+ preview.loading="lazy";
+ preview.tabIndex=-1;
+ preview.setAttribute("aria-hidden","true");
+ preview.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
+ preview.title="Prévia visual da publicação "+id+" no Instagram";
+ preview.setAttribute("allow","encrypted-media");
+ preview.addEventListener("load",()=>slot.classList.add("is-loaded"),{once:true});
+ preview.src="https://www.instagram.com/reel/"+encodeURIComponent(id)+"/embed/";
+ slot.append(preview);
+}
+if("IntersectionObserver" in window){
+ const coverObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){loadReelCover(e.target);coverObserver.unobserve(e.target)}});
+ },{rootMargin:"180px 250px",threshold:0});
+ reelCards.forEach(card=>coverObserver.observe(card));
+}else reelCards.slice(0,3).forEach(loadReelCover);
+
 function selectReel(n){
  reelIndex=(n+reelIds.length)%reelIds.length;
  const permalink="https://www.instagram.com/reel/"+encodeURIComponent(reelIds[reelIndex])+"/";

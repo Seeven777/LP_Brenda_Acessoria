@@ -1,28 +1,19 @@
-Brenda Assessoria | Redesign editorial V3
+# Brenda Assessoria — LP V5
 
-Site estático HTML/CSS/JS implantado na Vercel via GitHub.
+Landing page para assessoria independente de implantação da plataforma Brendi e IA Brenda.
 
-Melhorias: fotografia editorial, tipografia clara, paleta neutra com verde profundo, hierarquia reduzida, menu móvel acessível, botão fixo para diagnóstico no celular, chat demonstrativo por etapas sem scroll forçado, cards reais com links externos, números e casos da Brendi atribuídos à fonte, vídeo de ambientação licenciado de terceiro com poster fallback e economia de dados.
+## Páginas
+Produção: https://lpbrendaacessoria.vercel.app
+Portfólio: https://seeven-lp.vercel.app
+Exemplos de cardápios: https://menu.brendi.com.br/sabor-do-sul-delivery e https://menu.brendi.com.br/gssdelivery
 
-Contato: +55 11 92062-6850 em config.js.
-
-Fontes e transparência: https://brendi.com.br; https://lp.brendi.com.br; https://brendi.com.br/creators; https://menu.brendi.com.br/sabor-do-sul-delivery; https://menu.brendi.com.br/gssdelivery; https://seeven-lp.vercel.app. Vídeo contextual de terceiros: https://pikwizard.com/video/couple-preparing-dough-together-in-kitchen/5c2177c09bc814125195bd2a6b9028b0/.
-
-Depoimentos, vídeos e imagens da Brendi não foram copiados: termos de propriedade intelectual exigem autorização escrita para reutilização. Os resultados relatados pela Brendi não são atribuídos à assessoria nem garantidos.
-
-Checagem: testar desktop 1440 e 1024; mobile 320, 375, 390, 768; menu mobile, CTA, formulário, teclado, modo de redução de movimento, links externos, slider, tabs, vídeo opcional e contraste. O visitante confirma o envio de contatos no WhatsApp; não há armazenamento local ou servidor.
-
-## V3.1 — Autoavaliação de Cardápio
-- Checklist de cinco perguntas, inspirado no guia educativo Brendi *Os 5 erros que estão sabotando seu cardápio digital* (material fornecido pelo cliente).
-- O usuário responde identidade visual, categorias, fotos, descrições e promoções; nota de 0 a 10 e até três prioridades.
-- Avaliação autodeclarada, não auditoria técnica, análise por IA nem ferramenta oficial Raio-X da Brendi.
-- Sem cadastro, coleta nem armazenamento de respostas; somente quando o visitante decide usar o formulário, a avaliação é incluída na mensagem que ele pode enviar pelo WhatsApp.
-- Referência externa opcional ao Raio-X Digital oficial: https://raiox.brendi.com.br
-- Não reutilizar trechos longos, diagramas ou screenshots do guia Brendi sem permissão; texto do quiz é original.
-
-## V4 — melhoria comercial e visual
-- Hero desktop com direção de arte premium e uma proposta imediata: assessoria independente implanta a tecnologia Brendi.
-- Ponte visual mostra software + implantação + operação, distinguindo valores contratados separadamente.
-- Novos trechos de depoimentos atribuídos a Victor Cardoso (Salgados de Ouro), Léo (La Burguer SJC) e Vinicius (Super Salgados Riacho), publicados pela Brendi em https://lp.cnpj.brendi.com.br/.
-- Vídeos de depoimentos NÃO foram inventados ou reproduzidos; necessitam de links verificáveis para players incorporáveis e autorização quando aplicável.
-- O menu mobile foi mantido, com a correção dos listeners de CTA registrada no commit anterior.
+## Alterações V5
+- Mensagem direta, menos texto e seções de conversão concentradas.
+- Visual premium responsivo sem prender o scroll no celular.
+- Oito Reels informados pelo proprietário, incorporados no player oficial do Instagram dentro do site após o clique. Alternativa abre publicação original quando a incorporação estiver bloqueada. Reprodutibilidade depende de privacidade, login, bloqueios e disponibilidade do Instagram.
+- Três benefícios principais, exemplos reais de cardápios, jornada compacta e quiz de cinco perguntas.
+- CTA único: abre formulário, prepara mensagem, usuário clica em Enviar pelo WhatsApp. Sem popup automático.
+- Contato: `config.js` (+55 11 92062-6850).
+- Testes automatizados Playwright em desktop e mobile: `tests/smoke.mjs`.
+- Demostrações audiovisuais originais da Brendi: não re-hospedar sem autorização escrita conforme https://brendi.com.br/termos-de-uso. Linkar ou incorporar apenas com fonte verificável e permissão correspondente. Nossa jornada é ilustrativa.
+- A assinatura Brendi e serviço independente de assessoria são contratações distintas. Nenhum resultado é garantido.

@@ -1,91 +1,96 @@
-import { chromium } from 'playwright';
-import fs from 'node:fs/promises';
-
-const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
-await fs.mkdir('tests/screenshots',{recursive:true});
-
-async function makePage(width,height){
-  const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
-  await context.route('**/*', async route=>{
-    const url=route.request().url();
-    if(url.startsWith('http://127.0.0.1:4173/')||url.startsWith('data:'))return route.continue();
-    return route.abort();
-  });
-  const page=await context.newPage();
-  const errors=[];
-  page.on('pageerror',err=>errors.push(err.message));
-  await page.goto('http://127.0.0.1:4173/',{waitUntil:'domcontentloaded',timeout:20000});
-  await page.waitForTimeout(450);
-  return {page,context,errors};
+import { chromium } from "playwright";
+import fs from "node:fs/promises";
+const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
+await fs.mkdir("tests/screenshots",{recursive:true});
+function assert(ok,name){if(!ok)throw Error(name);console.log("PASS "+name)}
+async function setup(width,height=850){
+ const context=await browser.newContext({viewport:{width,height},reducedMotion:"reduce"});
+ await context.route("**/*",route=>route.request().url().startsWith("http://127.0.0.1:4173/")||route.request().url().startsWith("data:")?route.continue():route.abort());
+ const page=await context.newPage();let errors=[];
+ page.on("pageerror",e=>errors.push(e.message));
+ await page.goto("http://127.0.0.1:4173/",{waitUntil:"domcontentloaded"});
+ return {page,context,errors};
 }
-function assert(condition,message){if(!condition)throw new Error(message);console.log('OK '+message)}
-async function isOpen(page){return page.locator('#lead-modal').evaluate(el=>el.open)}
+async function isOpen(page,id){return page.locator(id).evaluate(e=>e.open)}
 try{
-  const desk=await makePage(1440,900);
-  const {page}=desk;
-  assert(await page.locator('#hero-title').isVisible(),'Desktop hero renders');
-  assert(await page.locator('#como-entregamos').count()===1,'Clear commercial proposition present');
-  await page.locator('.nav-contact').click();
-  console.log('CTA DIAGNOSTICS',JSON.stringify(await page.evaluate(()=>({modalOpen:document.querySelector('#lead-modal')?.open,modalTag:document.querySelector('#lead-modal')?.tagName,ctaCount:document.querySelectorAll('[data-open-lead]').length,readyState:document.readyState,hasForm:!!document.querySelector('#lead-form')}))), 'PAGE ERRORS:',desk.errors);
-  assert(await isOpen(page),'Desktop header CTA opens lead dialog');
-  await page.locator('#lead-close').click();
-  assert(!(await isOpen(page)),'Close button closes lead dialog');
-  await page.locator('#diagnostico-cardapio').scrollIntoViewIfNeeded();
-  for(let i=0;i<5;i++){
-    await page.locator('.audit-choice[data-value="2"]').click();
-    await page.locator('#audit-next').click();
-  }
-  assert(await page.locator('#audit-result').isVisible(),'Audit completes after five answers');
-  assert((await page.locator('#audit-score').textContent()).trim()==='10','Audit score is correct');
-  await page.locator('#audit-contact').click();
-  assert(await isOpen(page),'Audit CTA opens lead dialog');
-  const choice=await page.locator('select[name="challenge"]').inputValue();
-  assert(choice==='Revisar e melhorar meu cardápio digital','Audit context is transferred to lead');
-  await page.locator('input[name="name"]').fill('Cliente Teste');
-  await page.locator('input[name="business"]').fill('Delivery Exemplo');
-  await page.locator('input[name="phone"]').fill('11987654321');
-  await page.locator('input[name="city"]').fill('São Paulo, SP');
-  // Popups do WhatsApp não precisam completar o carregamento para validar o formulário.
-  await page.locator('#lead-form button[type="submit"]').click();
-  assert(await page.locator('#lead-result').isVisible(),'Lead submission renders preview');
-  assert((await page.locator('#lead-summary').inputValue()).includes('Autoavaliação de cardápio'),'Lead message includes audit answers');
-  await page.locator('#lead-close').click();
-  await page.locator('#na-pratica').scrollIntoViewIfNeeded();
-  await page.locator('#story-next').click();
-  assert((await page.locator('#story-title').textContent()).includes('Escolher'),'Desktop story next works');
-  await page.locator('#story-prev').click();
-  assert((await page.locator('#story-title').textContent()).includes('Brenda'),'Desktop story previous works');
-  assert(desk.errors.length===0,'No uncaught desktop JavaScript errors: '+desk.errors.join(', '));
-  await page.screenshot({path:'tests/screenshots/desktop.png',fullPage:true});
-  await desk.context.close();
-
-  const mob=await makePage(390,844);
-  const m=mob.page;
-  await m.locator('#menu-toggle').click();
-  assert(await m.locator('#mobile-nav').isVisible(),'Mobile menu opens');
-  await m.locator('#mobile-nav a[href="#diagnostico-cardapio"]').click();
-  assert(!(await m.locator('#mobile-nav').isVisible()),'Mobile menu closes after navigation');
-  await m.locator('#audit-prev').scrollIntoViewIfNeeded();
-  await m.locator('.audit-choice[data-value="1"]').click();
-  assert(await m.locator('#audit-next').isEnabled(),'Audit response enables next');
-  await m.locator('#audit-next').click();
-  assert((await m.locator('#audit-step-counter').textContent()).includes('02'),'Mobile quiz advances');
-  await m.locator('#audit-prev').click();
-  assert((await m.locator('#audit-step-counter').textContent()).includes('01'),'Mobile quiz returns');
-  await m.locator('#story-controls').scrollIntoViewIfNeeded();
-  await m.locator('.story-tab[data-step="3"]').click();
-  assert((await m.locator('#story-title').textContent()).includes('relacionamento'),'Mobile story tab works');
-  await m.locator('.mobile-action button').click();
-  assert(await isOpen(m),'Mobile fixed CTA opens dialog');
-  await m.locator('#lead-close').click();
-  assert(!(await isOpen(m)),'Mobile close works');
+ const test=await setup(1440,900),p=test.page;
+ assert(await p.locator("#hero-title").isVisible(),"hero desktop");
+ assert(await p.locator(".reel-card").count()===8,"oito reels");
+ const ctAs=await p.locator("[data-open-lead]").all();let clicks=0;
+ for(const el of ctAs){
+  if(!(await el.isVisible()))continue;
+  await el.click({timeout:9000});
+  assert(await isOpen(p,"#lead-modal"),"CTA abre modal "+(++clicks));
+  await p.locator("#lead-close").click();
+ }
+ assert(clicks>=4,"CTAs desktop");
+ await p.locator(".reel-card").first().click();
+ assert(await isOpen(p,"#reel-dialog"),"player abre sem sair da página");
+ assert((await p.locator("#reel-iframe").getAttribute("src")).includes("/DWjgf7ajewY/embed/"),"link de incorporação correto");
+ await p.locator("#reel-next").click();
+ assert((await p.locator("#reel-iframe").getAttribute("src")).includes("/DdwPzZfx3Jh/embed/"),"próximo Reel");
+ await p.locator("#reel-prev").click();
+ assert((await p.locator("#reel-iframe").getAttribute("src")).includes("/DWjgf7ajewY/embed/"),"anterior Reel");
+ await p.locator("#reel-close").click();
+ assert(!(await isOpen(p,"#reel-dialog")),"fechar reel");
+ assert(!(await p.locator("#reel-iframe").getAttribute("src")),"player interrompido");
+ await p.locator("#story-next").click();
+ assert((await p.locator("#story-title").textContent()).includes("Escolher"),"jornada avança");
+ await p.locator("#story-prev").click();
+ assert((await p.locator("#story-title").textContent()).includes("Brenda"),"jornada retrocede");
+ await p.locator("#diagnostico-cardapio").scrollIntoViewIfNeeded();
+ for(let i=0;i<5;i++){
+  await p.locator('.audit-choice[data-value="2"]').click();
+  assert(await p.locator("#audit-next").isEnabled(),"questão "+(i+1));
+  await p.locator("#audit-next").click();
+ }
+ assert(await p.locator("#audit-result").isVisible(),"resultado do checklist");
+ assert((await p.locator("#audit-score").textContent()).trim()==="10","resultado 10/10");
+ await p.locator("#audit-contact").click();
+ assert(await isOpen(p,"#lead-modal"),"CTA do checklist");
+ assert(await p.locator('select[name="challenge"]').inputValue()==="Revisar e melhorar meu cardápio digital","preenchimento de necessidade");
+ await p.locator('input[name="name"]').fill("Cliente Teste");
+ await p.locator('input[name="business"]').fill("Delivery Exemplo");
+ await p.locator('input[name="phone"]').fill("11987654321");
+ await p.locator('input[name="city"]').fill("São Paulo");
+ await p.locator('#lead-form button[type="submit"]').click();
+ assert(await p.locator("#lead-result").isVisible(),"resumo do contato");
+ assert((await p.locator("#lead-summary").inputValue()).includes("Autoavaliação"),"quiz no contato");
+ const url=await p.locator("#lead-send").getAttribute("href");
+ assert(url.startsWith("https://wa.me/5511920626850?text="),"numero WhatsApp e URL");
+ assert(decodeURIComponent(url).includes("Delivery Exemplo"),"dados no WhatsApp");
+ await p.locator("#lead-back").click();
+ assert(await p.locator("#lead-entry").isVisible(),"voltar para edição");
+ await p.locator("#lead-close").click();
+ await p.locator("#audit-restart").click();
+ assert(await p.locator("#audit-quiz").isVisible(),"reiniciar checklist");
+ assert(!test.errors.length,"nenhum erro JS no desktop: "+test.errors.join(";"));
+ await p.screenshot({path:"tests/screenshots/desktop.png",fullPage:true});
+ await test.context.close();
+ for(const width of [390,320,768,1024]){
+  const mob=await setup(width),m=mob.page;
   const overflow=await m.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
-  assert(overflow<=3,'Mobile has no horizontal overflow (px='+overflow+')');
-  assert(mob.errors.length===0,'No uncaught mobile JavaScript errors: '+mob.errors.join(', '));
-  await m.screenshot({path:'tests/screenshots/mobile.png',fullPage:true});
+  assert(overflow<=3,"sem rolagem horizontal em "+width+" px ("+overflow+")");
+  if(width<=930){
+   await m.locator("#menu-toggle").click();
+   assert(await m.locator("#mobile-nav").isVisible(),"menu mobile abre "+width);
+   await m.locator('#mobile-nav a[href="#diagnostico-cardapio"]').click();
+   assert(!(await m.locator("#mobile-nav").isVisible()),"menu mobile fecha "+width);
+  }
+  await m.locator('.story-tab[data-step="3"]').click();
+  assert((await m.locator("#story-title").textContent()).includes("relacionamento"),"tabs em "+width);
+  await m.locator(".reel-card").nth(7).click();
+  assert((await m.locator("#reel-iframe").getAttribute("src")).includes("Db9XOsdRlT7"),"reel 8 em "+width);
+  await m.locator("#reel-close").click();
+  if(width<=680){
+   await m.locator(".mobile-action button").click();
+   assert(await isOpen(m,"#lead-modal"),"CTA fixo mobile "+width);
+   await m.locator("#lead-close").click();
+  }
+  assert(!mob.errors.length,"nenhum erro JS em "+width+": "+mob.errors.join(";"));
+  if(width===390)await m.screenshot({path:"tests/screenshots/mobile.png",fullPage:true});
   await mob.context.close();
-  console.log('ALL CHECKS PASSED');
-}catch(err){
-  console.error('SMOKE TEST FAILED:',err);
-  process.exitCode=1;
-}finally{await browser.close()}
+ }
+ console.log("ALL CHECKS PASSED");
+}catch(e){console.error("SMOKE TEST FAILED:",e);process.exitCode=1}
+finally{await browser.close()}

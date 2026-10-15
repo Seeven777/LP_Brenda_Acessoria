@@ -1,162 +1,72 @@
 "use strict";
-(function(){
- const config=window.BRENDA_CONFIG||{};
- const $=function(s,r){return(r||document).querySelector(s)};
- const $$=function(s,r){return Array.from((r||document).querySelectorAll(s))};
- const header=$("#site-header"),progress=$("#scroll-progress");
- let ticking=false;
- function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(function(){const y=window.scrollY;header.classList.toggle("is-scrolled",y>24);const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(max?Math.min(100,y/max*100):0)+"%";ticking=false})}
- window.addEventListener("scroll",onScroll,{passive:true});onScroll();
- const menuToggle=$("#menu-toggle"),mobileMenu=$("#mobile-menu");
- function closeMenu(){menuToggle.setAttribute("aria-expanded","false");menuToggle.setAttribute("aria-label","Abrir menu");mobileMenu.hidden=true}
- menuToggle.addEventListener("click",function(){const next=menuToggle.getAttribute("aria-expanded")!=="true";menuToggle.setAttribute("aria-expanded",String(next));menuToggle.setAttribute("aria-label",next?"Fechar menu":"Abrir menu");mobileMenu.hidden=!next});
- $$("#mobile-menu a").forEach(function(a){a.addEventListener("click",closeMenu)});
- const revealObserver="IntersectionObserver"in window?new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");revealObserver.unobserve(entry.target)}})},{threshold:.08,rootMargin:"0px 0px -30px 0px"}):null;
- $$(".reveal").forEach(function(e){if(revealObserver)revealObserver.observe(e);else e.classList.add("is-visible")});
- const dialogs=$("#lead-modal"),openers=$$("[data-open-lead]"),close=$("#modal-close"),form=$("#lead-form"),formView=$("#lead-form-view"),successView=$("#lead-success-view"),copy=$("#lead-copy"),newBtn=$("#lead-new"),successCopy=$("#lead-success-copy"),summary=$("#lead-summary"),sr=$("#screenreader-status");let modalPreviousFocus=null;
- function openDialog(){closeMenu();modalPreviousFocus=document.activeElement;if(!dialogs.open){if(typeof dialogs.showModal==="function"){dialogs.showModal()}else dialogs.setAttribute("open","")}document.body.style.overflow="hidden"}
- function closeDialog(){if(dialogs.open){if(typeof dialogs.close==="function")dialogs.close();else dialogs.removeAttribute("open")}document.body.style.overflow="";if(modalPreviousFocus&&typeof modalPreviousFocus.focus==="function")modalPreviousFocus.focus()}
- openers.forEach(function(btn){btn.addEventListener("click",function(e){e.preventDefault();openDialog()})});
- close.addEventListener("click",closeDialog);
- dialogs.addEventListener("click",function(e){if(e.target===dialogs)closeDialog()});
- dialogs.addEventListener("close",function(){document.body.style.overflow=""});
- function escapeMessage(v){return String(v||"").trim().replace(/\s+/g," ").slice(0,160)}
- function buildLead(data){return "Olá! Quero solicitar um diagnóstico para implantar a Brendi/Brenda no meu estabelecimento.\n\n"+
- "Nome: "+escapeMessage(data.name)+"\n"+
- "Estabelecimento: "+escapeMessage(data.business)+"\n"+
- "WhatsApp: "+escapeMessage(data.phone)+"\n"+
- "Cidade: "+escapeMessage(data.city)+"\n"+
- "Principal desafio: "+escapeMessage(data.challenge)+"\n\n"+
- "Gostaria de entender como funciona a assessoria de implantação."}
- form.addEventListener("submit",function(e){
-   e.preventDefault();if(!form.reportValidity())return;
-   const data=Object.fromEntries(new FormData(form).entries());
-   const digits=String(data.phone||"").replace(/\D/g,"");
-   if(digits.length<10||digits.length>13){$("input[name=phone]",form).setCustomValidity("Informe seu WhatsApp com DDD.");form.reportValidity();return}
-   const message=buildLead(data);summary.value=message;
-   const businessDigits=String(config.whatsAppNumber||"").replace(/\D/g,"");
-   if(businessDigits.length>=12&&businessDigits.length<=13){
-      const target="https://wa.me/"+businessDigits+"?text="+encodeURIComponent(message);
-      window.open(target,"_blank","noopener,noreferrer");
-      if(Array.isArray(window.dataLayer))window.dataLayer.push({event:"diagnostico_whatsapp_iniciado"});
-      successCopy.textContent="Sua mensagem está preparada. Confira a nova aba do WhatsApp para revisar e enviar. Caso a aba tenha sido bloqueada, copie a mensagem abaixo.";
-   }else{
-      successCopy.textContent="Esta é uma prévia do site. O WhatsApp comercial ainda não foi configurado; sua mensagem foi preparada para você copiar. Nenhum dado foi enviado ou armazenado.";
-   }
-   formView.hidden=true;successView.hidden=false;copy.focus();
- });
- const phoneField=$("input[name=phone]",form);
- phoneField.addEventListener("input",function(){phoneField.setCustomValidity("")});
- copy.addEventListener("click",async function(){try{await navigator.clipboard.writeText(summary.value);copy.textContent="Copiado ✓";sr.textContent="Mensagem copiada";setTimeout(function(){copy.textContent="Copiar mensagem"},2200)}catch(_){summary.focus();summary.select();copy.textContent="Selecione e copie"}});newBtn.addEventListener("click",function(){formView.hidden=false;successView.hidden=true;form.querySelector("input").focus()});
- const orders=$("#orders"),minutes=$("#minutes"),days=$("#days");
- function calc(){const o=Number(orders.value),m=Number(minutes.value),d=Number(days.value),hrs=o*m*d/60;$("#orders-output").textContent=o.toLocaleString("pt-BR");$("#minutes-output").textContent=m+" min";$("#days-output").textContent=d;$("#hours-result").textContent=new Intl.NumberFormat("pt-BR",{maximumFractionDigits:1}).format(hrs);$("#calc-equivalent").textContent="O equivalente a "+new Intl.NumberFormat("pt-BR",{maximumFractionDigits:1}).format(hrs/8)+" jornadas de 8 horas.";[orders,minutes,days].forEach(function(el){const percent=(Number(el.value)-Number(el.min))/(Number(el.max)-Number(el.min))*100;el.style.background="linear-gradient(90deg,#a3cb50 "+percent+"%,#dbe2d5 "+percent+"%)"})}
- [orders,minutes,days].forEach(function(el){el.addEventListener("input",calc)});calc();
-
- // Story state is driven by document geometry, never by competing IntersectionObservers.
- // Clicking a control changes the visualization only; it never triggers scrollIntoView.
- const demo=[
-   {title:"Brenda • Atendimento",messages:[["in","Oi, vocês estão abertos?"],["out","Olá! Sim, estamos atendendo. Quer conhecer nosso cardápio?"],["in","Quero pedir para entrega."],["out","Perfeito! Vamos escolher seu pedido."]]},
-   {title:"Brenda • Cardápio",messages:[["in","Tem combo com batata?"],["out","Temos sim! Nosso combo inclui burger, batata e bebida."],["in","Vou querer um, sem cebola."],["out","Combinado! Vou anotar sem cebola."]]},
-   {title:"Brenda • Pedidos",messages:[["in","É para entregar aqui perto."],["out","Ótimo! Vou confirmar os dados e a forma de pagamento."],["order","Pedido em organização|1 combo da casa, sem cebola|Aguardando confirmação"]]},
-   {title:"Brenda • Relacionamento",messages:[["out","Obrigado pelo seu pedido! Esperamos que tenha gostado."],["in","Estava uma delícia!"],["out","Que bom! Quando quiser repetir, estaremos por aqui."]]}
- ];
- const msgRoot=$("#stage-messages"),deviceTitle=$("#device-title"),stageCounter=$("#stage-counter"),storySteps=$$(".story-step"),dots=$$(".stage-dot"),storySection=$("#experiencia"),storyStage=$("#story-stage");
- let activeIndex=-1,manualSelectionY=null;
- function showStep(index,force){
-   const i=Math.max(0,Math.min(demo.length-1,Number(index)||0));
-   if(i===activeIndex&&!force)return;
-   activeIndex=i;
-   storySteps.forEach(function(el,n){el.classList.toggle("is-active",n===i);el.setAttribute("aria-pressed",String(n===i))});
-   dots.forEach(function(el,n){el.classList.toggle("active",n===i);if(n===i)el.setAttribute("aria-current","step");else el.removeAttribute("aria-current")});
-   storyStage.dataset.activeStep=String(i);
-   storyStage.style.setProperty("--step-fill",((i+1)/demo.length*100)+"%");
-   deviceTitle.textContent=demo[i].title;
-   stageCounter.textContent="0"+(i+1)+" / 04";
-   const children=document.createDocumentFragment();
-   demo[i].messages.forEach(function(pair,n){
-     const node=document.createElement("div");
-     if(pair[0]==="order"){
-       const fields=pair[1].split("|");node.className="stage-order";
-       const title=document.createElement("div");title.className="stage-order-top";title.textContent=fields[0];
-       const item=document.createElement("strong");item.textContent=fields[1];
-       const foot=document.createElement("small");foot.textContent=fields[2];
-       node.append(title,item,foot);
-     }else{node.className="stage-msg "+pair[0];node.textContent=pair[1]}
-     node.style.animationDelay=n*70+"ms";
-     children.appendChild(node);
-   });
-   msgRoot.replaceChildren(children);
- }
- function chooseManually(i){
-   manualSelectionY=window.scrollY;
-   showStep(i);
-   storyStage.classList.remove("story-bounce");
-   void storyStage.offsetWidth;
-   storyStage.classList.add("story-bounce");
- }
- dots.forEach(function(el){el.addEventListener("click",function(){chooseManually(el.dataset.showStep)})});
- storySteps.forEach(function(el){
-   el.addEventListener("click",function(){chooseManually(el.dataset.step)});
-   el.addEventListener("keydown",function(ev){if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();chooseManually(el.dataset.step)}});
- });
- function updateStory(){
-   const sectionRect=storySection.getBoundingClientRect();
-   if(sectionRect.top>innerHeight||sectionRect.bottom<0)return;
-   if(manualSelectionY!==null){
-     if(Math.abs(window.scrollY-manualSelectionY)<55)return;
-     manualSelectionY=null;
-   }
-   const mobile=window.innerWidth<=700;
-   const scanY=window.innerHeight*(mobile?.83:.55);
-   let selected=0;
-   storySteps.forEach(function(step,index){if(step.getBoundingClientRect().top<=scanY)selected=index});
-   showStep(selected);
- }
- const prefersLessMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
- const parallaxItems=$$("[data-parallax]");
- const floating=$("#floating-contact");
- const hero=$("#inicio"),finalSection=$("#contato");
- let visualTicking=false;
- function updateDynamicVisuals(){
-   updateStory();
-   const isAfterHero=window.scrollY>Math.max(520,hero.offsetHeight*.78);
-   const nearFinal=finalSection.getBoundingClientRect().top<innerHeight*.85;
-   const showFloating=isAfterHero&&!nearFinal&&!dialogs.open;
-   floating.classList.toggle("is-visible",showFloating);
-   floating.tabIndex=showFloating?0:-1;
-   if(!prefersLessMotion){
-     parallaxItems.forEach(function(el){
-       const parent=el.closest("section"),r=parent.getBoundingClientRect();
-       if(r.bottom<0||r.top>innerHeight)return;
-       const offset=(window.innerHeight*.5-(r.top+r.height*.5))*Number(el.dataset.parallax||0);
-       el.style.setProperty("--parallax-y",Math.max(-55,Math.min(55,offset)).toFixed(1)+"px");
-     });
-   }
- }
- function onVisualScroll(){
-   if(visualTicking)return;visualTicking=true;
-   requestAnimationFrame(function(){updateDynamicVisuals();visualTicking=false});
- }
- window.addEventListener("scroll",onVisualScroll,{passive:true});
- window.addEventListener("resize",onVisualScroll,{passive:true});
- // Light-touch hover spotlight and staged entrances.
- $$(".pain-card,.feature-card,.more-card").forEach(function(card){
-   card.addEventListener("pointermove",function(ev){
-     if(prefersLessMotion||ev.pointerType==="touch")return;
-     const r=card.getBoundingClientRect();
-     card.style.setProperty("--spot-x",((ev.clientX-r.left)/r.width*100).toFixed(2)+"%");
-     card.style.setProperty("--spot-y",((ev.clientY-r.top)/r.height*100).toFixed(2)+"%");
-   },{passive:true});
- });
- $$(".pain-card,.feature-card,.more-card,.method-item").forEach(function(card,i){card.style.setProperty("--reveal-delay",(i%3*70)+"ms")});
- // Non-identifying analytics event hooks work only if the site adds a dataLayer.
- $$("[data-track]").forEach(function(link){
-   link.addEventListener("click",function(){
-     if(Array.isArray(window.dataLayer))window.dataLayer.push({event:link.dataset.track});
-   });
- });
- showStep(0,true);
- updateDynamicVisuals();
- $$(".faq-items details").forEach(function(d){d.addEventListener("toggle",function(){if(d.open)$$(".faq-items details").forEach(function(other){if(other!==d)other.open=false})})});
- $("#year").textContent=new Date().getFullYear();
+(()=>{
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const reduce=matchMedia("(prefers-reduced-motion: reduce)");
+const header=$("#header"),progress=$("#progress-bar"),menu=$("#menu-toggle"),nav=$("#mobile-nav"),mobileAction=$("#mobile-action"),closing=$("#contato");
+function setMenu(open){nav.hidden=!open;menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Fechar menu":"Abrir menu");document.body.classList.toggle("menu-open",open)}
+menu.addEventListener("click",()=>setMenu(nav.hidden));
+$$("#mobile-nav a").forEach(el=>el.addEventListener("click",()=>setMenu(false)));
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!nav.hidden){setMenu(false);menu.focus()}});
+document.addEventListener("click",e=>{if(!nav.hidden&&!header.contains(e.target))setMenu(false)});
+matchMedia("(min-width:931px)").addEventListener("change",e=>{if(e.matches)setMenu(false)});
+let ticking=false;
+function updateScroll(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max?Math.min(100,100*scrollY/max):0)+"%";header.classList.toggle("is-scrolled",scrollY>12);mobileAction.classList.toggle("is-hidden",closing.getBoundingClientRect().top<innerHeight*.75)}
+function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{updateScroll();ticking=false})}
+window.addEventListener("scroll",onScroll,{passive:true});window.addEventListener("resize",onScroll,{passive:true});updateScroll();
+const reveals=$$("[data-reveal]");
+if("IntersectionObserver" in window&&!reduce.matches){const ob=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");ob.unobserve(e.target)}}),{rootMargin:"0px 0px -25px 0px",threshold:.08});reveals.forEach(el=>ob.observe(el))}
+else reveals.forEach(el=>el.classList.add("is-visible"));
+const steps=[
+{eyebrow:"01 / ATENDIMENTO",title:"O cliente chama. A Brenda responde.",description:"Dúvidas e pedidos começam no WhatsApp. A IA pode orientar a conversa de maneira natural.",messages:[["in","Oi! Vocês estão atendendo?"],["out","Olá! Estamos sim. Posso te ajudar com o pedido?"],["in","Quero ver os pratos de hoje."],["out","Claro! Vou te mostrar nosso cardápio."]]},
+{eyebrow:"02 / CARDÁPIO",title:"Escolher fica mais fácil.",description:"Com as opções organizadas, o cliente encontra produtos, complementos e condições de compra.",messages:[["in","Tem alguma opção com frango?"],["out","Temos opções com frango. Quer conferir?"],["in","Pode ser, sem cebola."],["out","Perfeito. Vamos conferir os detalhes."]]},
+{eyebrow:"03 / PEDIDOS",title:"Cada pedido tem um caminho claro.",description:"As etapas podem ser acompanhadas em uma rotina integrada, conforme as configurações do estabelecimento.",messages:[["in","Quero finalizar para entrega."],["out","Vamos confirmar os dados para seguir com o pedido."],["in","Tudo certo por aqui."],["out","Ótimo! Vou encaminhar os próximos passos."]]},
+{eyebrow:"04 / RECOMPRA",title:"O relacionamento continua depois.",description:"Campanhas e ações de relacionamento podem ajudar o estabelecimento a manter contato com sua própria base.",messages:[["out","Obrigado pelo seu pedido! Esperamos que tenha gostado."],["in","Estava uma delícia!"],["out","Que bom receber esse retorno. Até a próxima!"]]}
+];
+const tabs=$$(".story-tab"),prev=$("#story-prev"),next=$("#story-next"),messages=$("#story-messages"),rail=$("#story-controls");
+let current=0;
+function showStep(index,focus=false){
+current=Math.min(3,Math.max(0,index));
+tabs.forEach((tab,n)=>{const active=n===current;tab.classList.toggle("is-selected",active);tab.setAttribute("aria-pressed",String(active))});
+$("#story-title").textContent=steps[current].title;$("#story-description").textContent=steps[current].description;$("#story-eyebrow").textContent=steps[current].eyebrow;$("#story-count").textContent=String(current+1).padStart(2,"0")+" — 04";
+prev.disabled=current===0;next.disabled=current===3;
+const fragment=document.createDocumentFragment();
+steps[current].messages.forEach(([dir,value],i)=>{const bubble=document.createElement("div");bubble.className="bubble "+dir;bubble.textContent=value;bubble.style.animationDelay=i*70+"ms";fragment.append(bubble)});
+messages.replaceChildren(fragment);
+if(focus)tabs[current].focus({preventScroll:true});
+if(rail.scrollWidth>rail.clientWidth){const t=tabs[current];rail.scrollTo({left:t.offsetLeft-rail.offsetLeft-(rail.clientWidth-t.clientWidth)/2,behavior:reduce.matches?"auto":"smooth"})}
+}
+tabs.forEach((tab,i)=>{tab.addEventListener("click",()=>showStep(i));tab.addEventListener("keydown",e=>{if(["ArrowRight","ArrowLeft","Home","End"].includes(e.key)){e.preventDefault();showStep(e.key==="Home"?0:e.key==="End"?3:(i+(e.key==="ArrowRight"?1:3))%4,true)}})});
+prev.addEventListener("click",()=>showStep(current-1));next.addEventListener("click",()=>showStep(current+1));showStep(0);
+const orders=$("#orders"),minutes=$("#minutes"),days=$("#days");
+const number=n=>new Intl.NumberFormat("pt-BR",{maximumFractionDigits:1}).format(n);
+function calculate(){const o=+orders.value,m=+minutes.value,d=+days.value,h=o*m*d/60;
+$("#orders-output").textContent=String(o);$("#minutes-output").textContent=m+" min";$("#days-output").textContent=String(d);$("#hours-result").textContent=number(h);$("#calc-equivalent").textContent="Equivale a "+number(h/8)+" jornadas de 8 horas.";
+[orders,minutes,days].forEach(el=>{const v=(+el.value-+el.min)/(+el.max-+el.min)*100;el.style.background="linear-gradient(90deg,#436b48 "+v+"%,#d9e2d6 "+v+"%)"})}
+[orders,minutes,days].forEach(el=>el.addEventListener("input",calculate));calculate();
+const modal=$("#lead-modal"),form=$("#lead-form"),entry=$("#lead-entry"),result=$("#lead-result"),summary=$("#lead-summary");let previousFocus=null;
+function openLead(e){if(e)e.preventDefault();setMenu(false);previousFocus=document.activeElement;entry.hidden=false;result.hidden=true;if(!modal.open)modal.showModal();document.body.classList.add("dialog-open")}
+function closeLead(){if(modal.open)modal.close();document.body.classList.remove("dialog-open");if(previousFocus?.focus)previousFocus.focus({preventScroll:true})}
+$$("[data-open-lead]").forEach(btn=>btn.addEventListener("click",openLead));
+$("#lead-close").addEventListener("click",closeLead);modal.addEventListener("click",e=>{if(e.target===modal)closeLead()});modal.addEventListener("close",()=>document.body.classList.remove("dialog-open"));
+const phone=form.elements.phone;phone.addEventListener("input",()=>phone.setCustomValidity(""));
+const trim=v=>String(v||"").trim().replace(/\s+/g," ").slice(0,125);
+form.addEventListener("submit",e=>{
+e.preventDefault();if(!form.reportValidity())return;
+const data=Object.fromEntries(new FormData(form).entries());const digits=String(data.phone||"").replace(/\D/g,"");
+if(digits.length<10||digits.length>13){phone.setCustomValidity("Informe o WhatsApp com DDD.");phone.reportValidity();return}
+const text="Olá! Gostaria de solicitar um diagnóstico para implantação da Brendi/Brenda.\n\nNome: "+trim(data.name)+"\nEstabelecimento: "+trim(data.business)+"\nWhatsApp: "+trim(data.phone)+"\nCidade: "+trim(data.city)+"\nNecessidade: "+trim(data.challenge)+"\n\nGostaria de conversar sobre a assessoria.";
+summary.value=text;
+const company=String(window.BRENDA_CONFIG?.whatsAppNumber||"").replace(/\D/g,"");
+if(company.length===13){window.open("https://wa.me/"+company+"?text="+encodeURIComponent(text),"_blank","noopener,noreferrer");$("#lead-result-text").textContent="A mensagem está preparada. Confira a nova aba do WhatsApp para revisar e enviar. Caso ela não tenha aberto, copie a mensagem abaixo.";if(Array.isArray(window.dataLayer))window.dataLayer.push({event:"diagnostico_whatsapp_aberto"})}
+else $("#lead-result-text").textContent="O número comercial não está configurado. Sua mensagem está pronta para copiar; nada foi enviado.";
+entry.hidden=true;result.hidden=false;$("#copy-message").focus();
+});
+$("#copy-message").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(summary.value);$("#copy-message").textContent="Mensagem copiada ✓";$("#screenreader-status").textContent="Mensagem copiada"}catch(_){summary.focus();summary.select();$("#screenreader-status").textContent="Selecione o texto para copiar manualmente"}});
+$("#lead-back").addEventListener("click",()=>{entry.hidden=false;result.hidden=true;form.elements.name.focus()});
+const video=$("#cinema-video");let loaded=false;
+function startVideo(){if(loaded||innerWidth<=680||reduce.matches||navigator.connection?.saveData)return;loaded=true;const iframe=document.createElement("iframe");iframe.src="https://player.vimeo.com/video/"+encodeURIComponent(video.dataset.videoId)+"?background=1&autoplay=1&muted=1&loop=1&autopause=0&title=0&byline=0&portrait=0";iframe.title="Vídeo ilustrativo de pessoas preparando alimentos";iframe.allow="autoplay; fullscreen";iframe.loading="lazy";iframe.tabIndex=-1;iframe.setAttribute("aria-hidden","true");video.append(iframe)}
+if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){startVideo();io.disconnect()}}),{rootMargin:"250px"});io.observe(video)}
+$$(".faq-list details").forEach(d=>d.addEventListener("toggle",()=>{if(d.open)$$(".faq-list details").forEach(other=>{if(other!==d)other.open=false})}));
+$$("[data-track]").forEach(link=>link.addEventListener("click",()=>{if(Array.isArray(window.dataLayer))window.dataLayer.push({event:link.dataset.track})}));
+$("#year").textContent=new Date().getFullYear();
 })();

@@ -11,6 +11,7 @@
   <meta property="og:image" content="/og-image.svg"/>
   <meta property="og:locale" content="pt_BR"/>
   <meta name="color-scheme" content="dark light"/>
+  <link rel="canonical" href="https://lpbrendaacessoria.vercel.app/"/>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -26,12 +27,9 @@
   <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
   <header class="site-header" id="site-header">
     <div class="nav-shell wrap">
-      <a class="brand" href="#inicio" aria-label="Brenda Assessoria, voltar ao início">
-        <span class="brand-symbol" aria-hidden="true">b<span>.</span></span>
-        <span class="brand-name">brenda<span class="brand-dot">.</span><small>ASSESSORIA DIGITAL</small></span>
-      </a>
+      <a class="brand brand-new" href="#inicio" aria-label="Brenda Assessoria Digital — início"><img src="/logo-brenda.svg" width="260" height="72" alt="Brenda Assessoria Digital" class="logo-img"/></a>
       <nav class="desktop-nav" aria-label="Navegação principal">
-        <a href="#problema">O desafio</a><a href="#solucao">A solução</a><a href="#metodo">Como funciona</a><a href="#simulador">Simulador</a>
+        <a href="#problema">O desafio</a><a href="#solucao">A solução</a><a href="#cardapio-real">Exemplo real</a><a href="#metodo">Assessoria</a>
       </nav>
       <div class="nav-actions">
         <a href="#contato" class="nav-cta" data-open-lead>Agendar diagnóstico <span aria-hidden="true">↗</span></a>
@@ -39,14 +37,14 @@
       </div>
     </div>
     <nav class="mobile-menu" id="mobile-menu" aria-label="Navegação móvel" hidden>
-      <a href="#problema">O desafio</a><a href="#solucao">A solução</a><a href="#metodo">Como funciona</a><a href="#simulador">Simulador</a><a href="#perguntas">Dúvidas</a>
+      <a href="#problema">O desafio</a><a href="#solucao">A solução</a><a href="#cardapio-real">Exemplo real</a><a href="#metodo">Assessoria</a><a href="#simulador">Simulador</a><a href="#outros-servicos">Outros serviços</a><a href="#perguntas">Dúvidas</a>
       <button class="btn btn-lime" data-open-lead>Solicitar diagnóstico ↗</button>
     </nav>
   </header>
 
   <main id="conteudo">
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-ambient hero-ambient-a"></div><div class="hero-ambient hero-ambient-b"></div>
+      <div class="hero-ambient hero-ambient-a" data-parallax=".075" aria-hidden="true"></div><div class="hero-ambient hero-ambient-b" data-parallax="-.06" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="wrap hero-layout">
         <div class="hero-copy">
@@ -96,10 +94,39 @@
         <div class="solution-heading reveal"><div><p class="kicker">A TECNOLOGIA CERTA, NO LUGAR CERTO</p><h2 class="display-title">Tudo conversa.<br/><em>Tudo flui.</em></h2></div><p>A Brendi conecta vendas, atendimento e gestão. Nós entramos para adaptar esse ecossistema à realidade do seu estabelecimento.</p></div>
         <div class="features-grid">
           <article class="feature-card feature-main reveal"><div class="feature-top"><span>01 / ATENDIMENTO</span><span class="mini-icon">↗</span></div><div class="feature-art chat-art"><div class="mini-conversation"><div class="mini-conversation-header"><span class="ai-avatar">b.</span><span>Brenda <small>● disponível 24h</small></span></div><div class="mini-msg left">Boa noite! Ainda está aberto?</div><div class="mini-msg right">Olá! Sim, estamos atendendo. Posso te ajudar a pedir? ✨</div><div class="mini-msg left">Quero o combo da casa!</div><div class="mini-msg right">Claro! Vou te mostrar as opções.</div></div><div class="art-float-pill">ATENDIMENTO + IA <span>✳</span></div></div><div class="feature-copy"><h3>A Brenda atende.<br/>Você ganha fôlego.</h3><p>Respostas, dúvidas e pedidos pelo WhatsApp com inteligência artificial, inclusive fora do horário em que você consegue ficar no celular.</p><span class="feature-tag">ATENDIMENTO COM IA</span></div></article>
-          <article class="feature-card feature-photo reveal"><div class="feature-top"><span>02 / VENDAS</span><span class="mini-icon">↗</span></div><div class="photo-menu"><div class="photo-menu-tag">SEU CARDÁPIO.<br/>SUA IDENTIDADE.</div><div class="phone-menu-mock"><div class="phone-speaker"></div><div class="menu-img"></div><strong>Mais pedidos, menos atrito.</strong><span>Cardápio claro e pronto para vender.</span><div class="menu-buy">Adicionar ao pedido　＋</div></div></div><div class="feature-copy"><h3>Um cardápio que dá<br/>vontade de pedir.</h3><p>Organização, fotos, categorias, complementos e uma jornada de compra mais prática no seu canal próprio.</p><span class="feature-tag">CARDÁPIO DIGITAL</span></div></article>
+          <article class="feature-card feature-photo reveal"><div class="feature-top"><span>02 / VENDAS</span><span class="mini-icon">↗</span></div><div class="photo-menu"><div class="photo-menu-tag">SEU CARDÁPIO.<br/>SUA IDENTIDADE.</div><div class="phone-menu-mock"><div class="phone-speaker"></div><div class="menu-img"></div><strong>Mais pedidos, menos atrito.</strong><span>Cardápio claro e pronto para vender.</span><div class="menu-buy">Adicionar ao pedido　＋</div></div></div><div class="feature-copy"><h3>Um cardápio que dá<br/>vontade de pedir.</h3><p>Organização, fotos, categorias, complementos e uma jornada de compra mais prática no seu canal próprio.</p><div class="feature-end"><span class="feature-tag">CARDÁPIO DIGITAL</span><a href="#cardapio-real" class="feature-real-link">Ver cardápio real ↗</a></div></div></article>
           <article class="feature-card feature-wide reveal"><div class="feature-top"><span>03 / CRESCIMENTO</span><span class="mini-icon">↗</span></div><div class="wide-feature-body"><div class="feature-copy"><h3>Seu cliente tem<br/>motivo para voltar.</h3><p>Cupons, recuperação de clientes e campanhas podem ajudar seu negócio a construir recorrência, sem depender exclusivamente de novos pedidos por aplicativos de terceiros.</p><span class="feature-tag">FIDELIZAÇÃO + MARKETING</span></div><div class="growth-art"><div class="growth-ring growth-ring-one"></div><div class="growth-ring growth-ring-two"></div><div class="growth-center">✳</div><div class="growth-chip growth-chip-one">Cliente voltou <span>↗</span></div><div class="growth-chip growth-chip-two">Campanha programada <span>●</span></div><div class="growth-chip growth-chip-three">Novo pedido <span>✓</span></div></div></div></article>
         </div>
         <p class="disclaimer-centered">Recursos sujeitos à configuração e às condições da plataforma Brendi. Os exemplos visuais são ilustrativos.</p>
+      </div>
+    </section>
+
+    <section class="section real-case" id="cardapio-real">
+      <div class="wrap">
+        <div class="section-lead reveal"><span class="section-index">02.5 / EXEMPLO PUBLICADO</span><span class="line"></span><span>VEJA A PLATAFORMA EM AÇÃO</span></div>
+        <div class="real-case-layout">
+          <div class="real-case-text reveal">
+            <span class="real-live"><span class="status-pulse"></span> UM CARDÁPIO REAL NA BRENDI</span>
+            <h2 class="display-title">Menos teoria.<br/><em>Mais realidade.</em></h2>
+            <p>Descubra como um cliente navega por um cardápio próprio: categorias organizadas, pratos apresentados e uma experiência de escolha que facilita o pedido.</p>
+            <div class="case-info"><span class="case-star">✳</span><div><strong>Sabor do Sul — Marmitaria</strong><small>Franco da Rocha, SP · Cardápio publicado na Brendi</small></div></div>
+            <a class="btn btn-lime btn-lg" href="https://menu.brendi.com.br/sabor-do-sul-delivery" target="_blank" rel="noopener noreferrer" data-track="cardapio_real_aberto">Explorar o cardápio real <span aria-hidden="true">↗</span></a>
+            <p class="case-disclaimer">Você acessará o cardápio publicado no domínio oficial da plataforma. Exemplo de utilização da Brendi, não apresentado como cliente da nossa assessoria. Preços, disponibilidade e produtos podem mudar.</p>
+          </div>
+          <div class="case-demo reveal">
+            <div class="case-browser"><span><i></i><i></i><i></i></span><span>menu.brendi.com.br</span><span>↗</span></div>
+            <div class="case-stage"><div class="case-halo"></div><div class="case-phone">
+                <div class="case-screen-time">9:41 <span>•••</span></div>
+                <div class="case-food-banner"></div>
+                <div class="case-business"><span>SS</span><div><strong>Sabor do Sul</strong><small>Marmitaria · Franco da Rocha</small></div></div>
+                <div class="case-cats"><span>Combos</span><span>Marmitex</span><span>Bebidas</span></div>
+                <strong class="case-heading">Mais pedidos <span>↗</span></strong>
+                <div class="case-dish"><span class="case-food-img"></span><div><strong>Churrasco Misto</strong><small>Veja as opções</small></div></div>
+                <div class="case-dish"><span class="case-food-img case-food-2"></span><div><strong>Frango à parmegiana</strong><small>Escolha seu prato</small></div></div>
+              </div><div class="case-float"><b>Seu cardápio.<br/>Sua vitrine.</b><small>Experiência acessível em qualquer tela.</small></div></div>
+            <div class="case-browser-foot"><span>PRÉVIA VISUAL ILUSTRATIVA</span><a href="https://menu.brendi.com.br/sabor-do-sul-delivery" target="_blank" rel="noopener noreferrer" data-track="cardapio_real_aberto">ABRIR O SITE REAL ↗</a></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -109,17 +136,17 @@
         <div class="story-intro reveal"><h2 class="display-title">Do primeiro “oi”<br/>ao próximo pedido.</h2><p>Uma experiência fluida para quem compra. Uma rotina mais organizada para quem vende.</p></div>
         <div class="story-grid">
           <div class="story-steps" id="story-steps">
-            <article class="story-step is-active" data-step="0"><div class="story-step-head"><span>01</span><span>ATENDIMENTO</span></div><h3>O cliente chama.<br/>A Brenda responde.</h3><p>Mensagens entram, dúvidas são esclarecidas e o cliente é conduzido para o pedido.</p></article>
-            <article class="story-step" data-step="1"><div class="story-step-head"><span>02</span><span>ESCOLHA</span></div><h3>Escolher fica<br/>mais fácil.</h3><p>Com o cardápio organizado, o cliente encontra produtos e opções de forma simples.</p></article>
-            <article class="story-step" data-step="2"><div class="story-step-head"><span>03</span><span>OPERAÇÃO</span></div><h3>O pedido chega<br/>organizado.</h3><p>O fluxo de vendas e os pedidos ficam mais claros para a equipe acompanhar a preparação.</p></article>
-            <article class="story-step" data-step="3"><div class="story-step-head"><span>04</span><span>RELACIONAMENTO</span></div><h3>A conversa não<br/>termina na entrega.</h3><p>Com sua base de clientes, você pode estimular recompra com ações relevantes.</p></article>
+            <article class="story-step is-active" data-step="0" role="button" tabindex="0" aria-label="Exibir etapa 1 de 4"><div class="story-step-head"><span>01</span><span>ATENDIMENTO</span></div><h3>O cliente chama.<br/>A Brenda responde.</h3><p>Mensagens entram, dúvidas são esclarecidas e o cliente é conduzido para o pedido.</p></article>
+            <article class="story-step" data-step="1" role="button" tabindex="0" aria-label="Exibir etapa 2 de 4"><div class="story-step-head"><span>02</span><span>ESCOLHA</span></div><h3>Escolher fica<br/>mais fácil.</h3><p>Com o cardápio organizado, o cliente encontra produtos e opções de forma simples.</p></article>
+            <article class="story-step" data-step="2" role="button" tabindex="0" aria-label="Exibir etapa 3 de 4"><div class="story-step-head"><span>03</span><span>OPERAÇÃO</span></div><h3>O pedido chega<br/>organizado.</h3><p>O fluxo de vendas e os pedidos ficam mais claros para a equipe acompanhar a preparação.</p></article>
+            <article class="story-step" data-step="3" role="button" tabindex="0" aria-label="Exibir etapa 4 de 4"><div class="story-step-head"><span>04</span><span>RELACIONAMENTO</span></div><h3>A conversa não<br/>termina na entrega.</h3><p>Com sua base de clientes, você pode estimular recompra com ações relevantes.</p></article>
           </div>
-          <div class="story-stage">
+          <div class="story-stage" id="story-stage" data-active-step="0">
             <div class="stage-bg-orb"></div>
             <div class="story-stage-top"><span class="stage-live"><i></i> EXPERIÊNCIA INTERATIVA</span><span id="stage-counter">01 / 04</span></div>
             <div class="stage-device">
               <div class="stage-device-top"><span>‹</span><div class="device-profile"><span class="ai-avatar">b.</span><div><strong id="device-title">Brenda • Atendimento</strong><small>online</small></div></div><span>⋮</span></div>
-              <div class="stage-device-messages" id="stage-messages" aria-live="polite"></div>
+              <div class="stage-device-messages" id="stage-messages" aria-live="off"></div>
               <div class="stage-device-footer"><span>Mensagem</span><span>➤</span></div>
             </div>
             <div class="stage-bottom"><span>DEMONSTRAÇÃO DE FLUXO</span><div class="stage-dots" aria-label="Selecionar etapa"><button type="button" class="stage-dot active" data-show-step="0" aria-label="Etapa 1" aria-current="step"></button><button type="button" class="stage-dot" data-show-step="1" aria-label="Etapa 2"></button><button type="button" class="stage-dot" data-show-step="2" aria-label="Etapa 3"></button><button type="button" class="stage-dot" data-show-step="3" aria-label="Etapa 4"></button></div></div>
@@ -129,7 +156,7 @@
     </section>
 
     <section class="interlude">
-      <div class="interlude-photo"></div><div class="interlude-overlay"></div>
+      <div class="interlude-photo" data-parallax=".045"></div><div class="interlude-overlay"></div>
       <div class="wrap interlude-inner reveal"><span class="eyebrow">PARA QUEM VIVE O DIA A DIA DE UMA COZINHA</span><h2>Menos tempo<br/>apagando incêndios.<br/><em>Mais tempo fazendo<br/>o que você faz melhor.</em></h2><button class="btn btn-lime" data-open-lead>Quero essa transformação <span>↗</span></button></div>
       <div class="interlude-aside">FEITO PARA QUEM EMPREENDE DE VERDADE.</div>
     </section>
@@ -169,6 +196,20 @@
       <div class="wrap"><div class="fit-layout"><div class="fit-title reveal"><span class="section-index">06 / PARA QUEM É</span><h2>Se você serve<br/>comida, podemos<br/><em>organizar o resto.</em></h2><p>Um projeto sob medida para operações que desejam atender melhor e construir seu canal próprio de relacionamento.</p></div><div class="fit-tags reveal"><span>Hamburguerias <b>↗</b></span><span>Pizzarias <b>↗</b></span><span>Marmitarias <b>↗</b></span><span>Restaurantes <b>↗</b></span><span>Açaí e sobremesas <b>↗</b></span><span>Outros deliveries <b>↗</b></span></div></div></div>
     </section>
 
+    <section class="section more-section" id="outros-servicos">
+      <div class="wrap">
+        <div class="section-lead reveal"><span class="section-index">07 / MAIS POSSIBILIDADES</span><span class="line"></span><span>SEEVEN · CRIATIVIDADE E ESTRATÉGIA</span></div>
+        <div class="more-heading reveal"><div><p class="kicker">ALÉM DA TECNOLOGIA</p><h2 class="display-title">Seu negócio evolui.<br/><em>Sua marca também.</em></h2></div><p>O crescimento não termina com uma boa implantação. Conheça a Seeven para explorar outros projetos de posicionamento, comunicação e presença digital.</p></div>
+        <div class="more-cards">
+          <article class="more-card reveal"><div class="more-icon">▣</div><span>01 / PRESENÇA</span><h3>Experiências digitais</h3><p>Sites e páginas para apresentar seu negócio de forma marcante.</p></article>
+          <article class="more-card reveal"><div class="more-icon">✳</div><span>02 / IDENTIDADE</span><h3>Marca e design</h3><p>Uma apresentação visual consistente em cada contato com seu público.</p></article>
+          <article class="more-card reveal"><div class="more-icon">◈</div><span>03 / COMUNICAÇÃO</span><h3>Marketing e conteúdo</h3><p>Comunicação que valoriza seus produtos e facilita conexões.</p></article>
+        </div>
+        <div class="more-action reveal"><div><span class="seeven-mark">S/ <em>SEEVEN</em></span><p>Explore as possibilidades diretamente no site da Seeven.</p></div><a href="https://seeven-lp.vercel.app" class="btn btn-lime btn-lg" target="_blank" rel="noopener noreferrer" data-track="site_seeven_aberto">Conhecer outros serviços <span aria-hidden="true">↗</span></a></div>
+        <small class="more-disclaimer">Projetos complementares são definidos e contratados separadamente.</small>
+      </div>
+    </section>
+
     <section class="section section-faq" id="perguntas"><div class="wrap faq-layout">
       <div class="reveal"><div class="section-lead"><span class="section-index">07 / PERGUNTAS FREQUENTES</span></div><h2 class="display-title">Sem dúvidas.<br/><em>Sem complicação.</em></h2><p class="faq-intro">O que você precisa saber antes de transformar sua operação.</p></div>
       <div class="faq-items reveal">
@@ -185,8 +226,9 @@
     <section class="final-cta" id="contato"><div class="final-orb"></div><div class="wrap final-inner reveal"><span class="eyebrow"><span class="status-pulse"></span> O PRÓXIMO PASSO COMEÇA AQUI</span><h2>Seu delivery pode<br/>funcionar <em>melhor.</em><br/>Vamos conversar?</h2><p>Conte um pouco sobre seu estabelecimento. Vamos entender sua operação e desenhar o caminho para uma implantação inteligente.</p><button class="btn btn-lime btn-xl" data-open-lead>Quero meu diagnóstico <span>↗</span></button><small>Sem compromisso • Atendimento personalizado</small></div><span class="final-watermark" aria-hidden="true">b.</span></section>
   </main>
 
-  <footer class="footer"><div class="wrap footer-top"><a class="brand footer-brand" href="#inicio"><span class="brand-symbol">b<span>.</span></span><span class="brand-name">brenda<span class="brand-dot">.</span><small>ASSESSORIA DIGITAL</small></span></a><div class="footer-links"><a href="#solucao">A solução</a><a href="#metodo">Nossa assessoria</a><a href="#simulador">Simulador</a><a href="#perguntas">Perguntas</a><button data-open-lead>Fale com a gente ↗</button></div></div><div class="wrap footer-bottom"><p>© <span id="year">2026</span> Brenda Assessoria. Todos os direitos reservados.</p><p>Assessoria independente. Brendi e Brenda são marcas de seus respectivos titulares. Não há vínculo oficial declarado com a plataforma.</p><a href="#inicio">VOLTAR AO TOPO ↑</a></div></footer>
+  <footer class="footer"><div class="wrap footer-top"><a class="brand brand-new footer-brand" href="#inicio" aria-label="Brenda Assessoria Digital — início"><img src="/logo-brenda.svg" width="260" height="72" alt="Brenda Assessoria Digital" class="logo-img"/></a><div class="footer-links"><a href="#solucao">A solução</a><a href="#metodo">Nossa assessoria</a><a href="#simulador">Simulador</a><a href="#cardapio-real">Cardápio real</a><a href="#outros-servicos">Outros serviços</a><a href="#perguntas">Perguntas</a><button data-open-lead>Fale com a gente ↗</button></div></div><div class="wrap footer-bottom"><p>© <span id="year">2026</span> Brenda Assessoria. Todos os direitos reservados.</p><p>Assessoria independente. Brendi e Brenda são marcas de seus respectivos titulares. Não há vínculo oficial declarado com a plataforma.</p><a href="#inicio">VOLTAR AO TOPO ↑</a></div></footer>
   
+  <button type="button" class="floating-contact" id="floating-contact" data-open-lead aria-label="Solicitar diagnóstico"><span class="floating-dot"></span>Falar com um especialista <span aria-hidden="true">↗</span></button>
   <dialog class="lead-modal" id="lead-modal" aria-labelledby="modal-title">
     <div class="modal-panel"><div class="modal-top"><span class="modal-eyebrow">BRENDA / PRIMEIRO PASSO</span><button type="button" class="modal-close" id="modal-close" aria-label="Fechar formulário">✕</button></div><div id="lead-form-view"><h2 id="modal-title">Vamos falar do<br/><em>seu negócio.</em></h2><p class="modal-desc">Em menos de um minuto, você dá o primeiro passo para uma operação mais inteligente.</p><form id="lead-form"><div class="form-row"><label>Seu nome<input type="text" name="name" placeholder="Como podemos te chamar?" required minlength="2" maxlength="80" autocomplete="name"/></label><label>Nome do estabelecimento<input type="text" name="business" placeholder="Nome do seu delivery" required minlength="2" maxlength="100" autocomplete="organization"/></label></div><div class="form-row"><label>WhatsApp com DDD<input type="tel" name="phone" placeholder="(11) 99999-9999" required inputmode="tel" autocomplete="tel" minlength="10"/></label><label>Sua cidade<input type="text" name="city" placeholder="Cidade / UF" required maxlength="100" autocomplete="address-level2"/></label></div><label>Qual é seu maior desafio?<select name="challenge" required><option value="" disabled selected>Selecione uma opção</option><option>Atender mais rápido no WhatsApp</option><option>Organizar pedidos e cardápio</option><option>Atrair e fidelizar clientes</option><option>Implantar a plataforma completa</option><option>Quero entender todas as possibilidades</option></select></label><p class="form-privacy">Ao continuar, você prepara uma mensagem com os dados informados para entrar em contato com nossa assessoria. Não armazenamos os dados neste site.</p><button class="btn btn-lime btn-full" type="submit" id="lead-submit">Preparar meu contato <span>↗</span></button></form></div><div id="lead-success-view" hidden><div class="success-icon">✓</div><h2>Próximo passo<br/><em>preparado.</em></h2><p id="lead-success-copy"></p><textarea readonly id="lead-summary" rows="8" aria-label="Mensagem preparada"></textarea><div class="success-actions"><button class="btn btn-lime" id="lead-copy">Copiar mensagem</button><button class="btn btn-ghost" id="lead-new">Voltar</button></div></div></div>
   </dialog>

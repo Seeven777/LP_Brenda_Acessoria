@@ -20,7 +20,7 @@
 <header class="header" id="header">
   <div class="shell header-row">
     <a href="#inicio" class="logo" aria-label="Brenda Assessoria, início"><span class="logo-symbol" aria-hidden="true">b<span>.</span></span><span class="logo-type">brenda<small>ASSESSORIA DIGITAL</small></span></a>
-    <nav class="nav-desktop" aria-label="Menu principal"><a href="#solucao">O que fazemos</a><a href="#na-pratica">Na prática</a><a href="#metodo">Como funciona</a><a href="#perguntas">Dúvidas</a></nav>
+    <nav class="nav-desktop" aria-label="Menu principal"><a href="#solucao">O que fazemos</a><a href="#na-pratica">Na prática</a><a href="#metodo">Como funciona</a><a href="#diagnostico-cardapio">Diagnóstico</a></nav>
     <button type="button" data-open-lead class="nav-contact">Solicitar diagnóstico <span aria-hidden="true">↗</span></button>
     <button type="button" id="menu-toggle" class="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span></button>
   </div>
@@ -30,7 +30,8 @@
       <a href="#na-pratica"><small>02</small> Na prática <span>↗</span></a>
       <a href="#metodo"><small>03</small> Como funciona <span>↗</span></a>
       <a href="#provas"><small>04</small> Resultados divulgados <span>↗</span></a>
-      <a href="#perguntas"><small>05</small> Perguntas frequentes <span>↗</span></a>
+      <a href="#diagnostico-cardapio"><small>05</small> Avaliar meu cardápio <span>↗</span></a>
+      <a href="#perguntas"><small>06</small> Perguntas frequentes <span>↗</span></a>
       <button type="button" data-open-lead class="button button-primary">Solicitar diagnóstico <span>↗</span></button>
       <p>Assessoria independente para restaurantes e operações de delivery.</p>
     </div>
@@ -44,7 +45,7 @@
         <h1 id="hero-title">Seu delivery merece uma rotina <em>mais leve.</em></h1>
         <p class="hero-intro">Você cuida do sabor, da equipe e de cada pedido. Nós ajudamos a tecnologia a cuidar do restante.</p>
         <p class="hero-sub">Implantamos a plataforma Brendi e a IA Brenda de forma personalizada, sem exigir que você se torne especialista em sistemas.</p>
-        <div class="hero-buttons"><button type="button" class="button button-primary" data-open-lead>Quero conhecer a assessoria <span>↗</span></button><a href="#solucao" class="button-text">Entenda como funciona <span>↓</span></a></div>
+        <div class="hero-buttons"><button type="button" class="button button-primary" data-open-lead>Quero conhecer a assessoria <span>↗</span></button><a href="#diagnostico-cardapio" class="button-text">Avalie seu cardápio <span>↓</span></a></div>
         <div class="hero-cred"><span class="cred-icon">✳</span><span>Para quem empreende no setor de alimentação<br>e quer mais organização para crescer.</span></div>
       </div>
       <figure class="hero-photo">
@@ -119,6 +120,58 @@
     </div>
   </section>
 
+
+  <section class="audit section" id="diagnostico-cardapio" aria-labelledby="audit-heading">
+    <div class="shell">
+      <div class="section-label" data-reveal><span>03.5 / SEU CARDÁPIO</span><i></i><span>UM PRIMEIRO OLHAR PARA SUA OPERAÇÃO</span></div>
+      <div class="audit-layout">
+        <div class="audit-intro" data-reveal>
+          <p class="eyebrow-small">CHECKLIST INTERATIVO · 5 PERGUNTAS</p>
+          <h2 id="audit-heading">Seu cardápio está ajudando <em>ou dificultando a venda?</em></h2>
+          <p>Nem sempre o problema está no produto. Um cardápio confuso, sem fotos ou informações claras pode tornar a decisão do cliente mais difícil.</p>
+          <div class="audit-benefits">
+            <div><span aria-hidden="true">01</span><strong>Responda sobre o seu cardápio atual</strong></div>
+            <div><span aria-hidden="true">02</span><strong>Descubra quais pontos merecem atenção</strong></div>
+            <div><span aria-hidden="true">03</span><strong>Receba um próximo passo para melhorar</strong></div>
+          </div>
+          <p class="audit-disclosure">Avaliação orientativa baseada em informações fornecidas por você, não em uma inspeção do seu site. Os critérios foram inspirados em um guia educativo da Brendi sobre boas práticas de cardápio.</p>
+        </div>
+        <div class="audit-panel" data-reveal>
+          <div id="audit-quiz">
+            <div class="audit-panel-top"><span>AUTOAVALIAÇÃO DE CARDÁPIO</span><span id="audit-step-counter" aria-live="polite">01 / 05</span></div>
+            <div class="audit-progress" role="progressbar" id="audit-progress" aria-label="Progresso da avaliação" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1"><span id="audit-progress-fill" style="width:20%"></span></div>
+            <div class="audit-question-content" id="audit-question-content">
+              <span class="audit-topic" id="audit-topic">IDENTIDADE VISUAL</span>
+              <h3 id="audit-question">Seu cardápio tem logo, cores e uma aparência coerente com a sua marca?</h3>
+              <p id="audit-hint">Pense na primeira impressão de quem ainda não conhece seu restaurante.</p>
+              <div class="audit-choices" id="audit-choices" role="group" aria-label="Responda à pergunta atual">
+                <button type="button" class="audit-choice" data-value="2" aria-pressed="false"><span class="audit-choice-circle" aria-hidden="true"></span>Sim, está bem resolvido</button>
+                <button type="button" class="audit-choice" data-value="1" aria-pressed="false"><span class="audit-choice-circle" aria-hidden="true"></span>Em parte</button>
+                <button type="button" class="audit-choice" data-value="0" aria-pressed="false"><span class="audit-choice-circle" aria-hidden="true"></span>Ainda não</button>
+              </div>
+            </div>
+            <div class="audit-panel-bottom"><button class="audit-back" id="audit-prev" type="button" disabled>← Voltar</button><button type="button" class="button button-primary audit-next" id="audit-next" disabled>Continuar <span aria-hidden="true">→</span></button></div>
+          </div>
+          <div id="audit-result" class="audit-result" hidden aria-live="polite">
+            <div class="audit-panel-top"><span>SUA AUTOAVALIAÇÃO</span><span>05 / 05</span></div>
+            <span class="audit-result-label" id="audit-result-label">RESULTADO ORIENTATIVO</span>
+            <div class="audit-score"><strong id="audit-score">0</strong><span>/ 10 pontos</span></div>
+            <h3 id="audit-result-title">Seu cardápio pode evoluir.</h3>
+            <p id="audit-result-description">Vamos identificar as próximas melhorias.</p>
+            <div class="audit-priorities">
+              <span>PRIORIDADES IDENTIFICADAS</span>
+              <div id="audit-priority-list"></div>
+            </div>
+            <p class="audit-smallprint">Este resultado é uma orientação inicial, não uma auditoria profissional, previsão de faturamento ou avaliação automática do estabelecimento.</p>
+            <button type="button" class="button button-primary full" data-open-lead id="audit-contact">Quero melhorar meu cardápio <span aria-hidden="true">↗</span></button>
+            <button type="button" class="audit-restart" id="audit-restart">Refazer minha avaliação ↺</button>
+          </div>
+        </div>
+      </div>
+      <div class="audit-footer"><span>CONTEÚDO EDUCATIVO, NÃO UMA FERRAMENTA OFICIAL DA BRENDI</span><a href="https://raiox.brendi.com.br/" target="_blank" rel="noopener noreferrer" data-track="raiox_brendi">Conhecer também o Raio-X Digital da Brendi ↗</a></div>
+    </div>
+  </section>
+
   <section class="proof section" id="provas">
     <div class="shell">
       <div class="section-label proof-label" data-reveal><span>04 / CREDIBILIDADE</span><i></i><span>NÚMEROS PUBLICADOS PELA BRENDI</span></div>
@@ -181,7 +234,7 @@
 
   <section class="closing" id="contato"><div class="shell closing-layout"><div data-reveal><span class="eyebrow-small">O PRÓXIMO PASSO É SIMPLES</span><h2>Uma operação mais leve começa com <em>uma boa conversa.</em></h2><p>Conte um pouco sobre seu negócio. Nós ajudamos a identificar por onde começar.</p><button type="button" class="button button-primary" data-open-lead>Solicitar meu diagnóstico <span>↗</span></button></div><div class="closing-image"><img loading="lazy" width="850" height="940" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1100&q=78" alt="Ambiente de restaurante preparado para atender clientes"></div></div></section>
 </main>
-<footer class="footer"><div class="shell"><div class="footer-main"><a class="logo footer-logo" href="#inicio" aria-label="Brenda Assessoria, voltar ao início"><span class="logo-symbol" aria-hidden="true">b<span>.</span></span><span class="logo-type">brenda<small>ASSESSORIA DIGITAL</small></span></a><div class="footer-nav"><a href="#solucao">Serviços</a><a href="#na-pratica">Exemplos reais</a><a href="#provas">Brendi na prática</a><a href="#metodo">Assessoria</a><a href="https://seeven-lp.vercel.app" target="_blank" rel="noopener noreferrer">Seeven ↗</a></div></div><div class="footer-end"><span>© <span id="year">2026</span> Brenda Assessoria</span><p>Assessoria independente. Não somos a Brendi nem representamos oficialmente a fabricante da plataforma. Os exemplos e dados oficiais são atribuídos às suas fontes.</p><a href="#inicio">Voltar ao topo ↑</a></div></div></footer>
+<footer class="footer"><div class="shell"><div class="footer-main"><a class="logo footer-logo" href="#inicio" aria-label="Brenda Assessoria, voltar ao início"><span class="logo-symbol" aria-hidden="true">b<span>.</span></span><span class="logo-type">brenda<small>ASSESSORIA DIGITAL</small></span></a><div class="footer-nav"><a href="#solucao">Serviços</a><a href="#na-pratica">Exemplos reais</a><a href="#provas">Brendi na prática</a><a href="#diagnostico-cardapio">Avaliar cardápio</a><a href="#metodo">Assessoria</a><a href="https://seeven-lp.vercel.app" target="_blank" rel="noopener noreferrer">Seeven ↗</a></div></div><div class="footer-end"><span>© <span id="year">2026</span> Brenda Assessoria</span><p>Assessoria independente. Não somos a Brendi nem representamos oficialmente a fabricante da plataforma. Os exemplos e dados oficiais são atribuídos às suas fontes.</p><a href="#inicio">Voltar ao topo ↑</a></div></div></footer>
 <div class="mobile-action" id="mobile-action"><button type="button" class="button button-primary" data-open-lead>Solicitar diagnóstico <span>↗</span></button></div>
 <dialog id="lead-modal" class="lead-modal" aria-labelledby="lead-title"><div class="lead-box">
   <div class="lead-top"><span>DIAGNÓSTICO INICIAL</span><button type="button" class="lead-close" id="lead-close" aria-label="Fechar formulário">✕</button></div>
@@ -191,7 +244,7 @@
     <label>Nome do estabelecimento <input name="business" type="text" autocomplete="organization" maxlength="100" required placeholder="Nome da empresa"></label>
     <label>WhatsApp com DDD <input name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(11) 99999-9999"></label>
     <label>Cidade <input name="city" type="text" autocomplete="address-level2" required maxlength="100" placeholder="Cidade / UF"></label>
-  </div><label>Principal necessidade<select name="challenge" required><option value="" selected disabled>Selecione</option><option>Organizar atendimento no WhatsApp</option><option>Implantar o cardápio digital</option><option>Automatizar o delivery</option><option>Treinar minha equipe</option><option>Quero conhecer todas as possibilidades</option></select></label>
+  </div><label>Principal necessidade<select name="challenge" required><option value="" selected disabled>Selecione</option><option>Organizar atendimento no WhatsApp</option><option>Implantar o cardápio digital</option><option>Revisar e melhorar meu cardápio digital</option><option>Automatizar o delivery</option><option>Treinar minha equipe</option><option>Quero conhecer todas as possibilidades</option></select></label>
     <p class="lead-privacy">Ao continuar, o WhatsApp abrirá com uma mensagem já preenchida. Nada será enviado automaticamente e nenhum dado será armazenado por este site.</p>
     <button type="submit" class="button button-primary full">Continuar para o WhatsApp ↗</button>
   </form></div>

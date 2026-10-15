@@ -11,3 +11,11 @@ Fontes e transparência: https://brendi.com.br; https://lp.brendi.com.br; https:
 Depoimentos, vídeos e imagens da Brendi não foram copiados: termos de propriedade intelectual exigem autorização escrita para reutilização. Os resultados relatados pela Brendi não são atribuídos à assessoria nem garantidos.
 
 Checagem: testar desktop 1440 e 1024; mobile 320, 375, 390, 768; menu mobile, CTA, formulário, teclado, modo de redução de movimento, links externos, slider, tabs, vídeo opcional e contraste. O visitante confirma o envio de contatos no WhatsApp; não há armazenamento local ou servidor.
+
+## V3.1 — Autoavaliação de Cardápio
+- Checklist de cinco perguntas, inspirado no guia educativo Brendi *Os 5 erros que estão sabotando seu cardápio digital* (material fornecido pelo cliente).
+- O usuário responde identidade visual, categorias, fotos, descrições e promoções; nota de 0 a 10 e até três prioridades.
+- Avaliação autodeclarada, não auditoria técnica, análise por IA nem ferramenta oficial Raio-X da Brendi.
+- Sem cadastro, coleta nem armazenamento de respostas; somente quando o visitante decide usar o formulário, a avaliação é incluída na mensagem que ele pode enviar pelo WhatsApp.
+- Referência externa opcional ao Raio-X Digital oficial: https://raiox.brendi.com.br
+- Não reutilizar trechos longos, diagramas ou screenshots do guia Brendi sem permissão; texto do quiz é original.

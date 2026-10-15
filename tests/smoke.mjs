@@ -113,7 +113,12 @@ try{
   await m.locator('.story-tab[data-step="1"]').click();
   assert(await m.locator(".story-audio-button").isVisible(),"controle de áudio em "+width);
   assert(await m.locator(".story-transcription").isVisible(),"transcrição visível em "+width);
-  if(width===390)await m.locator("#brenda-em-acao").screenshot({path:"tests/screenshots/brenda-story-mobile.png"});
+  if(width===390){
+    await m.locator("#brenda-em-acao").scrollIntoViewIfNeeded();
+    await m.waitForTimeout(170);
+    assert(await m.locator(".mobile-action").evaluate(e=>e.classList.contains("is-hidden")),"CTA fixo não sobrepõe a demonstração mobile");
+    await m.locator("#brenda-em-acao").screenshot({path:"tests/screenshots/brenda-story-mobile.png"});
+  }
   await m.locator(".demo-card").first().click();
   assert(await isOpen(m,"#demo-dialog"),"demonstração no viewport "+width);
   await m.locator("#demo-close").click();

@@ -14,7 +14,9 @@ function scrollUI(){
 const h=document.documentElement.scrollHeight-innerHeight;
 $("#progress-bar").style.width=(h?Math.max(0,Math.min(100,scrollY/h*100)):0)+"%";
 header.classList.toggle("is-scrolled",scrollY>10);
-const hide=closing.getBoundingClientRect().top<innerHeight*.78;
+const storyRect=$("#brenda-em-acao").getBoundingClientRect();
+const immersiveStoryVisible=storyRect.top<innerHeight*.83&&storyRect.bottom>innerHeight*.24;
+const hide=closing.getBoundingClientRect().top<innerHeight*.78||immersiveStoryVisible;
 action.classList.toggle("is-hidden",hide);
 action.querySelector("button").tabIndex=hide?-1:0;
 }

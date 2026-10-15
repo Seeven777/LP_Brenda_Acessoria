@@ -114,7 +114,7 @@ $("#orders-output").textContent=String(o);$("#minutes-output").textContent=m+" m
 const modal=$("#lead-modal"),form=$("#lead-form"),entry=$("#lead-entry"),result=$("#lead-result"),summary=$("#lead-summary");let previousFocus=null;
 function openLead(e){if(e)e.preventDefault();previousFocus=document.activeElement;setMenu(false);entry.hidden=false;result.hidden=true;$("#copy-message").textContent="Copiar mensagem";if(!modal.open)modal.showModal();document.body.classList.add("dialog-open")}
 function closeLead(){if(modal.open)modal.close();document.body.classList.remove("dialog-open");if(previousFocus?.focus)previousFocus.focus({preventScroll:true})}
-$("[data-open-lead]").forEach(btn=>btn.addEventListener("click",e=>{if(btn.id==="audit-contact"){$("select[name=challenge]",form).value="Revisar e melhorar meu cardápio digital"}openLead(e)}));
+$$("[data-open-lead]").forEach(btn=>btn.addEventListener("click",e=>{if(btn.id==="audit-contact"){$("select[name=challenge]",form).value="Revisar e melhorar meu cardápio digital"}openLead(e)}));
 $("#lead-close").addEventListener("click",closeLead);modal.addEventListener("click",e=>{if(e.target===modal)closeLead()});modal.addEventListener("close",()=>document.body.classList.remove("dialog-open"));
 const phone=form.elements.phone;phone.addEventListener("input",()=>phone.setCustomValidity(""));
 const trim=v=>String(v||"").trim().replace(/\s+/g," ").slice(0,125);

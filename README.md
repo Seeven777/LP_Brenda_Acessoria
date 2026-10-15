@@ -1,32 +1,25 @@
-# Brenda Assessoria — Landing Page
+# Brenda Assessoria — Landing Page V2
 
-Landing page comercial independente para serviços de implantação, configuração, personalização e acompanhamento da plataforma **Brendi** e da IA **Brenda**.
+Landing page de assessoria independente para implantação e personalização da Brendi e da IA Brenda. Site estático com HTML, CSS e JavaScript, publicado pela integração GitHub → Vercel.
 
-## Como executar
-Site estático: abra index.html num servidor HTTP ou publique a pasta na Vercel. Não precisa de npm, Node, API paga ou etapa de build.
+## Endereços
+- Produção: https://lpbrendaacessoria.vercel.app
+- Repositório: https://github.com/Seeven777/LP_Brenda_Acessoria
+- Cardápio real de referência: https://menu.brendi.com.br/sabor-do-sul-delivery
+- Outros serviços Seeven: https://seeven-lp.vercel.app
 
-## Configuração obrigatória antes do lançamento comercial
-Abra **config.js** e preencha **whatsAppNumber** com o telefone comercial completo (código do país + DDD + número, somente dígitos), como "5511999999999".
+## Configuração e contatos
+- `config.js` define o WhatsApp comercial `5511920626850` (+55 11 92062-6850).
+- Ao enviar o formulário, o navegador abre o WhatsApp com mensagem pré-preenchida; o visitante confirma manualmente o envio.
+- Não há backend, armazenamento de dados ou analytics instalados nesta versão.
 
-O formulário abre o WhatsApp com uma mensagem pré-preenchida **apenas quando** esse número estiver configurado. Sem ele, a página opera em modo de demonstração e informa claramente que nada foi enviado.
+## Principais implementações V2
+- Nova marca vetorial `logo-brenda.svg`, favicon coerente e aplicação no menu/rodapé.
+- Correção da seção de jornada: a etapa ativa usa geometria no scroll; cliques nos dots ou nas etapas não chamam `scrollIntoView`. Em mobile, painel sticky compacto acompanha a sequência.
+- Cardápio real da Sabor do Sul com link externo, claramente separado da miniatura ilustrativa.
+- Seção de acesso ao portfólio Seeven e possibilidades de serviços complementares.
+- Parallax discreto, spotlight de hover, revelação com stagger e CTA flutuante, respeitando redução de movimento.
+- Simulador ilustrativo de tempo operacional e formulário comercial.
 
-## Arquivos
-- index.html: semântica, conteúdo, metadados SEO e formulário.
-- styles.css: design responsivo, animações e acessibilidade.
-- script.js: interações, narrativa por rolagem, simulador e formulário.
-- config.js: WhatsApp de atendimento.
-- favicon.svg / og-image.svg: identidade visual.
-
-## Atenção comercial
-- Este site é de **assessoria independente**, não um site oficial da Brendi.
-- Não apresenta depoimentos fictícios ou ganhos garantidos.
-- O simulador calcula o tempo dedicado a atendimentos repetitivos, **não** promete economia real.
-- Custos da plataforma Brendi, eventuais anúncios e serviços de assessoria devem ser informados separadamente na proposta.
-- As imagens são referências de banco de imagens Unsplash e as interfaces são demonstrações ilustrativas.
-- É aconselhável substituir fotografias genéricas por material próprio e integrar analytics / política de privacidade antes de campanhas pagas.
-
-## Publicação
-Conecte este repositório à Vercel com Framework Preset = Other, Root Directory = / e sem build command. O arquivo index.html é servido diretamente. Alterações na branch main entram automaticamente em produção quando a integração Git estiver ativa.
-
-## Testes sugeridos
-Navegação desktop/mobile, modal (abrir/fechar), formulário com validação, simulador, passo a passo por rolagem, redução de movimento e estado do WhatsApp antes/depois da configuração.
+## Verificação recomendada
+Navegar devagar/rápido, para cima/para baixo, pela jornada; tocar nos quatro indicadores e cartões; testar 320/375/390/768/1440px; conferir navegação por teclado, links, WhatsApp e modal; ativar redução de movimento. Não atribuir ao estabelecimento do exemplo os serviços da assessoria, nem interpretar o simulador como economia garantida.

@@ -67,3 +67,52 @@ body:has(.lead-modal[open]) .floating-contact{visibility:hidden;opacity:0;pointe
 @media(max-width:960px){.brand-new{width:205px}.real-case-layout{grid-template-columns:1fr;gap:45px}.case-demo{width:min(100%,680px);margin:auto}.more-heading{display:block}.more-heading>p{max-width:630px;margin-top:20px}}
 @media(max-width:700px){.brand-new{width:180px;max-width:56vw}.real-case-text>p{font-size:15px}.real-live{font-size:8px}.case-stage{height:430px}.case-phone{width:250px}.case-float{max-width:170px;bottom:12px;right:9px;padding:12px}.case-float b{font-size:15px}.more-cards{grid-template-columns:1fr}.more-card{min-height:235px}.more-icon{margin-bottom:10px}.more-action{flex-direction:column;align-items:stretch;padding:24px}.more-action .btn{width:100%}.floating-contact{left:12px;right:12px;bottom:12px}}
 @media(prefers-reduced-motion:reduce){.hero-ambient,.interlude-photo{transform:none!important}.reveal{transition-delay:0ms!important}.case-demo:hover .case-phone{transform:translateX(-50%) rotate(-5deg)}}
+
+/* V2: stable timeline and enhanced scroll-state feedback */
+.story-section{overflow:visible}
+.story-grid{align-items:stretch}
+.story-step{cursor:pointer;transition:opacity .28s,background .28s,border-color .28s}
+.story-step.is-active{opacity:1}
+.story-step:focus-visible{outline:2px solid #d4f66a;outline-offset:3px}
+.story-stage{--step-fill:25%;height:min(630px,calc(100dvh - 130px));min-height:475px;max-height:650px}
+.story-stage:after{content:"";position:absolute;inset:0 auto auto 0;width:var(--step-fill);height:3px;background:#d4f66a;box-shadow:0 0 24px #d4f66a85;transition:width .45s ease;z-index:8}
+.story-stage[data-active-step="1"]{border-color:#8fac7680}
+.story-stage[data-active-step="2"]{border-color:#d4f66a8c}
+.story-stage[data-active-step="3"]{border-color:#a9d9708c}
+.story-bounce .stage-device{animation:storyBump .35s ease}
+@keyframes storyBump{from{transform:translateY(7px)}to{transform:translateY(0)}}
+.stage-device{height:min(430px,calc(100dvh - 300px));min-height:275px}
+.stage-dot{height:24px;width:28px;background:transparent!important;position:relative;flex-shrink:0}
+.stage-dot:after{content:"";position:absolute;inset:9px 2px;background:#657862;border-radius:5px;transition:transform .2s,background .2s}
+.stage-dot.active:after{background:#d4f66a;transform:scaleY(1.35)}
+.stage-dot.active{width:40px}
+.stage-dots{position:relative;z-index:6}
+.pain-card,.feature-card,.more-card{isolation:isolate}
+.pain-card:after,.feature-card:after,.more-card:after{content:"";inset:0;position:absolute;z-index:4;pointer-events:none;background:radial-gradient(360px circle at var(--spot-x,50%) var(--spot-y,50%),#d4f66a26,transparent 67%);opacity:0;transition:opacity .3s}
+.pain-card:hover:after,.feature-card:hover:after,.more-card:hover:after{opacity:1}
+.reveal{transition-delay:var(--reveal-delay,0ms)}
+@media(max-width:700px){
+ .story-grid{display:flex;flex-direction:column;align-items:stretch;gap:0}
+ .story-stage{order:-1;position:sticky;top:78px;z-index:5;height:min(53dvh,405px);min-height:310px;max-height:420px;margin-bottom:17px;align-self:stretch}
+ .story-steps{order:1;padding-bottom:0}
+ .story-step{min-height:max(220px,37dvh);padding:24px 14px 24px 24px}
+ .story-step:before{top:30px}
+ .story-step h3{font-size:clamp(29px,7vw,37px);margin:16px 0}
+ .story-step p{font-size:13px;line-height:1.6}
+ .stage-device{height:calc(min(53dvh,405px) - 81px);min-height:225px;width:min(270px,76%);border-width:4px;border-radius:19px}
+ .stage-device-top{padding:8px 11px}
+ .stage-device-messages{padding:9px 10px;gap:7px}
+ .stage-msg{padding:7px 9px;font-size:9px}
+ .stage-order{padding:10px}
+ .stage-bottom,.story-stage-top{padding:10px 14px;font-size:8px}
+ .stage-dots{gap:3px}
+}
+@media(max-width:370px){
+ .story-stage{height:315px;min-height:315px}
+ .stage-device{height:225px;min-height:225px;width:min(235px,75%)}
+}
+@media(prefers-reduced-motion:reduce){
+ .story-bounce .stage-device{animation:none!important}
+ .story-stage:after,.pain-card:after,.feature-card:after,.more-card:after{transition:none!important}
+ .reveal{transition-delay:0ms!important}
+}

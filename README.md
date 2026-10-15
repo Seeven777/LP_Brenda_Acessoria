@@ -24,3 +24,11 @@ Exemplos de cardápios: https://menu.brendi.com.br/sabor-do-sul-delivery e https
 - Previews só iniciam ao se aproximarem da área visível; player maior abre sob demanda e para quando fecha.
 - Documentação da API oEmbed da Meta alterou disponibilidade de `thumbnail_url` em novembro de 2025. Por isso não dependemos desse campo nem inventamos fotos dos Reels.
 - Respeitar direitos do material oficial da Brendi: demonstrativos do YouTube são incorporados pelos players da editora, não copiados ao repositório.
+
+## V6 — experiência Brenda em ação
+- Refatoração exclusiva da seção `#brenda-em-acao` com seis cenários: atendimento natural 24h, interpretação de áudio/imagem, sugestões e montagem de pedido, pagamento Pix/cartão, gestor, recompra/fidelização.
+- Capacidade de interpretar áudio recebido, imagens e figurinhas foi verificada na documentação de marketing oficial: https://brendi.com.br/atendimento-virtual e https://brendi.com.br/delivery-pelo-whatsapp/.
+- Narração é exemplo produzido no próprio navegador via SpeechSynthesis após clique, não é voz da Brenda, nem gravação real. Transcrição visível e fallback para dispositivos sem TTS.
+- As conversas, preços, status e cartões são ilustrações próprias. Recursos dependem do plano, integração e configuração. A assinatura Brendi continua distinta do serviço de assessoria.
+- Seis tabs com setas do teclado, estados acessíveis, visualização desktop com telefone, layout mobile sem scroll prendendo a página, botão de proposta.
+- Testes Chromium verificam as seis cenas, mensagem de áudio, transcrição, imagem, pagamento, pedido, recompras e CTA.

@@ -46,10 +46,29 @@ try{
  await p.locator("#reel-close").click();
  assert(!(await isOpen(p,"#reel-dialog")),"fechar reel");
  assert(!(await p.locator("#reel-iframe").getAttribute("src")),"player interrompido");
+ assert(await p.locator(".story-tab").count()===6,"seis capacidades exploráveis");
  await p.locator("#story-next").click();
- assert((await p.locator("#story-title").textContent()).includes("Escolher"),"jornada avança");
- await p.locator("#story-prev").click();
- assert((await p.locator("#story-title").textContent()).includes("Brenda"),"jornada retrocede");
+ assert((await p.locator("#story-title").textContent()).includes("áudio"),"avança para compreensão de áudio");
+ assert(await p.locator("#story-sound-demo").isVisible(),"narração de exemplo disponível");
+ assert(await p.locator(".story-audio-button").count()===1,"mensagem com controle de áudio");
+ assert((await p.locator(".story-transcription").textContent()).includes("dois combos"),"transcrição de áudio legível");
+ assert(await p.locator(".story-attachment").count()===1,"imagem ilustrativa recebida");
+ await p.locator("#story-next").click();
+ assert((await p.locator("#story-title").textContent()).includes("pedido"),"etapa de sugestão de pedido");
+ await p.locator(".story-tab[data-step='3']").click();
+ assert(await p.locator(".story-pay-card").isVisible(),"opções Pix e cartão visualizadas");
+ await p.locator(".story-tab[data-step='4']").click();
+ assert(await p.locator(".story-status-card").isVisible(),"pedido exibido no gestor");
+ await p.locator(".story-tab[data-step='5']").click();
+ assert((await p.locator("#story-title").textContent()).includes("relação"),"recompra na sexta etapa");
+ assert(await p.locator("#story-next").isDisabled(),"próximo desabilitado ao final");
+ await p.locator(".story-tab[data-step='0']").click();
+ assert((await p.locator("#story-title").textContent()).includes("Brenda"),"retorna ao atendimento");
+ assert(await p.locator("#story-prev").isDisabled(),"anterior desabilitado no começo");
+ await p.locator(".micro-story [data-open-lead]").click();
+ assert(await isOpen(p,"#lead-modal"),"CTA da jornada abre formulário");
+ await p.locator("#lead-close").click();
+ await p.locator("#brenda-em-acao").screenshot({path:"tests/screenshots/brenda-story-desktop.png"});
  await p.locator("#diagnostico-cardapio").scrollIntoViewIfNeeded();
  for(let i=0;i<5;i++){
   await p.locator('.audit-choice[data-value="2"]').click();
@@ -89,8 +108,12 @@ try{
    await m.locator('#mobile-nav a[href="#diagnostico-cardapio"]').click();
    assert(!(await m.locator("#mobile-nav").isVisible()),"menu mobile fecha "+width);
   }
-  await m.locator('.story-tab[data-step="3"]').click();
-  assert((await m.locator("#story-title").textContent()).includes("relacionamento"),"tabs em "+width);
+  await m.locator('.story-tab[data-step="5"]').click();
+  assert((await m.locator("#story-title").textContent()).includes("relação"),"navegação da sexta etapa em "+width);
+  await m.locator('.story-tab[data-step="1"]').click();
+  assert(await m.locator(".story-audio-button").isVisible(),"controle de áudio em "+width);
+  assert(await m.locator(".story-transcription").isVisible(),"transcrição visível em "+width);
+  if(width===390)await m.locator("#brenda-em-acao").screenshot({path:"tests/screenshots/brenda-story-mobile.png"});
   await m.locator(".demo-card").first().click();
   assert(await isOpen(m,"#demo-dialog"),"demonstração no viewport "+width);
   await m.locator("#demo-close").click();

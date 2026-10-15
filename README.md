@@ -5,7 +5,8 @@ Landing page de assessoria independente para implantação e personalização da
 ## Endereços
 - Produção: https://lpbrendaacessoria.vercel.app
 - Repositório: https://github.com/Seeven777/LP_Brenda_Acessoria
-- Cardápio real de referência: https://menu.brendi.com.br/sabor-do-sul-delivery
+- Cardápio real principal: https://menu.brendi.com.br/sabor-do-sul-delivery
+- Segundo exemplo independente: https://menu.brendi.com.br/gssdelivery
 - Outros serviços Seeven: https://seeven-lp.vercel.app
 
 ## Configuração e contatos

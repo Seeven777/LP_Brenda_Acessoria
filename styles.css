@@ -116,3 +116,8 @@ body:has(.lead-modal[open]) .floating-contact{visibility:hidden;opacity:0;pointe
  .story-stage:after,.pain-card:after,.feature-card:after,.more-card:after{transition:none!important}
  .reveal{transition-delay:0ms!important}
 }
+
+.case-extra-example{padding:18px 0 15px;margin-top:22px;display:flex;flex-direction:column;gap:10px}
+.case-extra-example>span{font-size:9px;letter-spacing:1.5px;color:#879f87;font-weight:800}
+.case-extra-example a{font-size:13px;font-weight:800;color:#d4f66a;display:inline-flex;align-items:center;gap:9px;max-width:410px}
+.case-extra-example a:hover{text-decoration:underline;text-underline-offset:5px}

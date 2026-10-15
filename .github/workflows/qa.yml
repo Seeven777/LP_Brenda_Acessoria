@@ -25,6 +25,8 @@ jobs:
           exit 1
       - name: Test desktop and mobile interactions
         run: node tests/smoke.mjs
+      - name: Test all functionality pages
+        run: node tests/features.mjs
       - name: Check external video covers (diagnostic only)
         run: node tests/media-preview.mjs
         continue-on-error: true

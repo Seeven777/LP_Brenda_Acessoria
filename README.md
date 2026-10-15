@@ -32,3 +32,13 @@ Exemplos de cardápios: https://menu.brendi.com.br/sabor-do-sul-delivery e https
 - As conversas, preços, status e cartões são ilustrações próprias. Recursos dependem do plano, integração e configuração. A assinatura Brendi continua distinta do serviço de assessoria.
 - Seis tabs com setas do teclado, estados acessíveis, visualização desktop com telefone, layout mobile sem scroll prendendo a página, botão de proposta.
 - Testes Chromium verificam as seis cenas, mensagem de áudio, transcrição, imagem, pagamento, pedido, recompras e CTA.
+
+## Nova central de funcionalidades
+- 9 páginas estáticas independentes, com URLs legíveis, metadados SEO, navegação cruzada e links a fontes oficiais.
+- Índice com filtros por vendas/atendimento, campanhas/fidelização e gestão.
+- Conteúdo autoral baseado nas nove páginas oficiais da Brendi fornecidas pelo cliente, sem copiar textos ou mídia da fabricante.
+- Cada página explica a funcionalidade, seis aplicações práticas, três prévias ilustrativas selecionáveis, quatro etapas de assessoria, perguntas frequentes e contato contextual via WhatsApp +55 11 92062-6850.
+- Páginas: `/funcionalidades/{slug}/`; código responsivo compartilhado em `feature-pages.css` e `feature-pages.js`.
+- Importante: não usar os mocks como prints reais. Recursos efetivos dependem de plano, disponibilidade e integrações; o tráfego pago tem custos adicionais.
+- A home permanece praticamente intacta; links de benefícios, navegação e pequeno banner levam à central.
+- `sitemap.xml` e `robots.txt` atualizados.

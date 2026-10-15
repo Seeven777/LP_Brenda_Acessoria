@@ -341,3 +341,16 @@ h1 em,h2 em,h3 em,h4 em{font:italic 400 1.03em/1 var(--serif);letter-spacing:-.0
 @media(prefers-reduced-motion:reduce){
  .micro-story .story-phone,.micro-story .chat-messages>.story-msg,.micro-story .story-footer-progress span{animation:none!important;transition:none!important}
 }
+
+/* Compact deep-feature entry point; preserves original homepage hierarchy */
+.feature-discovery{display:flex;align-items:center;justify-content:space-between;gap:34px;border-top:1px solid #c6d7c5;border-bottom:1px solid #c6d7c5;padding-block:27px!important;margin-block:0 4px}
+.feature-discovery>div{flex:1}
+.feature-discovery span{display:block;color:#60816a;font-size:10px;font-weight:800;letter-spacing:1.4px}
+.feature-discovery strong{display:block;font-size:clamp(20px,2vw,30px);line-height:1.22;letter-spacing:-1px;margin-top:9px}
+.feature-discovery p{font-size:12px;line-height:1.5;color:#718774;margin-top:7px}
+.feature-discovery>.button{white-space:nowrap;min-width:240px}
+@media(max-width:680px){
+.feature-discovery{flex-direction:column;align-items:stretch;gap:21px;padding-block:25px!important}
+.feature-discovery strong{font-size:25px}
+.feature-discovery>.button{width:100%;min-width:0}
+}

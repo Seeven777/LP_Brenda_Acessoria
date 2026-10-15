@@ -19,3 +19,10 @@ Checagem: testar desktop 1440 e 1024; mobile 320, 375, 390, 768; menu mobile, CT
 - Sem cadastro, coleta nem armazenamento de respostas; somente quando o visitante decide usar o formulário, a avaliação é incluída na mensagem que ele pode enviar pelo WhatsApp.
 - Referência externa opcional ao Raio-X Digital oficial: https://raiox.brendi.com.br
 - Não reutilizar trechos longos, diagramas ou screenshots do guia Brendi sem permissão; texto do quiz é original.
+
+## V4 — melhoria comercial e visual
+- Hero desktop com direção de arte premium e uma proposta imediata: assessoria independente implanta a tecnologia Brendi.
+- Ponte visual mostra software + implantação + operação, distinguindo valores contratados separadamente.
+- Novos trechos de depoimentos atribuídos a Victor Cardoso (Salgados de Ouro), Léo (La Burguer SJC) e Vinicius (Super Salgados Riacho), publicados pela Brendi em https://lp.cnpj.brendi.com.br/.
+- Vídeos de depoimentos NÃO foram inventados ou reproduzidos; necessitam de links verificáveis para players incorporáveis e autorização quando aplicável.
+- O menu mobile foi mantido, com a correção dos listeners de CTA registrada no commit anterior.

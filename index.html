@@ -130,17 +130,67 @@
         </a>
       </div>
       <p class="micro-legal">Imagens ilustrativas. Os links abrem cardápios reais publicados na plataforma, não clientes atribuídos à nossa assessoria.</p>
-      <div class="micro-story" aria-label="Como acontece um pedido">
-        <div class="micro-story-heading"><span class="section-tag">UM FLUXO SIMPLES</span><h3>Do “oi” ao pedido.</h3></div>
-        <div class="story-controls" id="story-controls" role="group" aria-label="Etapas da jornada de pedido">
-          <button type="button" data-step="0" class="story-tab is-selected" aria-pressed="true">01 · Atendimento</button>
-          <button type="button" data-step="1" class="story-tab" aria-pressed="false">02 · Cardápio</button>
-          <button type="button" data-step="2" class="story-tab" aria-pressed="false">03 · Pedido</button>
-          <button type="button" data-step="3" class="story-tab" aria-pressed="false">04 · Recompra</button>
+      <section class="micro-story" id="brenda-em-acao" aria-labelledby="story-headline">
+        <div class="story-intro">
+          <div class="story-intro-copy">
+            <span class="story-kicker"><span class="story-live-dot" aria-hidden="true"></span> CONHEÇA A IA BRENDA</span>
+            <h3 id="story-headline">Ela não só responde.<br><em>Ela entende e vende.</em></h3>
+            <p>Um cliente escreve, manda áudio, escolhe, paga e volta. Descubra como a Brenda pode participar de cada etapa.</p>
+          </div>
+          <div class="story-intro-aside" aria-label="Destaques da Brenda">
+            <span class="story-mini-icon" aria-hidden="true">✳</span>
+            <strong>Atendimento 24h</strong>
+            <small>Texto, áudio e imagem</small>
+          </div>
         </div>
-        <div class="story-content"><div><span id="story-eyebrow" class="story-eyebrow">01 / ATENDIMENTO</span><h4 id="story-title">A Brenda responde ao cliente.</h4><p id="story-description">Uma conversa no WhatsApp pode iniciar a compra.</p></div><div class="chat-mini" aria-label="Exemplo ilustrativo de conversa"><div class="chat-mini-header">b. <span>Atendimento ilustrativo</span></div><div id="story-messages" class="chat-messages"></div></div></div>
-        <div class="story-footer"><button type="button" id="story-prev">← Anterior</button><span id="story-count">01 — 04</span><button type="button" id="story-next">Próxima →</button></div>
-      </div>
+        <div class="story-workspace">
+          <div class="story-controls" id="story-controls" role="group" aria-label="Explore as seis capacidades da Brenda">
+            <button type="button" data-step="0" class="story-tab is-selected" aria-pressed="true"><span class="story-tab-number">01</span><span class="story-tab-title">Conversa</span><span class="story-tab-detail">Atende 24h</span></button>
+            <button type="button" data-step="1" class="story-tab" aria-pressed="false"><span class="story-tab-number">02</span><span class="story-tab-title">Áudio + imagem</span><span class="story-tab-detail">Entende de verdade</span></button>
+            <button type="button" data-step="2" class="story-tab" aria-pressed="false"><span class="story-tab-number">03</span><span class="story-tab-title">Recomenda</span><span class="story-tab-detail">Monta o pedido</span></button>
+            <button type="button" data-step="3" class="story-tab" aria-pressed="false"><span class="story-tab-number">04</span><span class="story-tab-title">Pagamento</span><span class="story-tab-detail">Pix ou cartão</span></button>
+            <button type="button" data-step="4" class="story-tab" aria-pressed="false"><span class="story-tab-number">05</span><span class="story-tab-title">Gestão</span><span class="story-tab-detail">Pedido organizado</span></button>
+            <button type="button" data-step="5" class="story-tab" aria-pressed="false"><span class="story-tab-number">06</span><span class="story-tab-title">Recompra</span><span class="story-tab-detail">Cliente que volta</span></button>
+          </div>
+          <div class="story-content" id="story-content" data-scene="0">
+            <div class="story-editorial">
+              <span id="story-eyebrow" class="story-eyebrow">01 / ATENDIMENTO HUMANIZADO</span>
+              <div class="story-scene-number" id="story-scene-number" aria-hidden="true">01</div>
+              <h4 id="story-title">A Brenda responde. Você continua produzindo.</h4>
+              <p id="story-description">Ela conversa naturalmente, tira dúvidas sobre o cardápio e atende mesmo fora dos horários de pico.</p>
+              <div class="story-benefits" id="story-benefits" aria-label="Recursos desta etapa">
+                <span>24h, todos os dias</span><span>Tom do seu restaurante</span><span>Atendimento humano quando precisar</span>
+              </div>
+              <div class="story-editorial-bottom"><span class="story-example-label"><span class="story-example-pulse"></span> EXEMPLO INTERATIVO</span><button class="story-sound-demo" type="button" id="story-sound-demo" hidden><span aria-hidden="true">▶</span><span>Ouvir áudio de exemplo</span></button></div>
+            </div>
+            <div class="story-visual">
+              <div class="story-orbit-ring story-orbit-one" aria-hidden="true"></div>
+              <div class="story-orbit-ring story-orbit-two" aria-hidden="true"></div>
+              <div class="story-floating-label" id="story-float-label" aria-hidden="true"><span class="story-floating-symbol">✳</span><span><small>BRENDA ATIVA</small><strong>Atendimento inteligente</strong></span></div>
+              <div class="story-phone" role="region" aria-label="Simulação de atendimento pelo WhatsApp">
+                <div class="story-phone-status" aria-hidden="true"><span>14:39</span><span class="story-status-icons">◖ ▰</span></div>
+                <div class="story-phone-header">
+                  <span class="story-phone-back" aria-hidden="true">‹</span>
+                  <span class="story-phone-avatar" aria-hidden="true">b.</span>
+                  <span class="story-phone-contact"><strong>Delivery Exemplo</strong><small><span class="story-online-dot"></span> Brenda · atendimento</small></span>
+                  <span class="story-phone-dots" aria-hidden="true">⋯</span>
+                </div>
+                <div class="story-phone-chat" id="story-phone-chat">
+                  <div class="story-day-label">HOJE</div>
+                  <div id="story-messages" class="chat-messages" aria-live="polite" aria-relevant="additions text" aria-label="Conversa ilustrativa"></div>
+                </div>
+                <div class="story-phone-bottom" aria-hidden="true"><span>＋</span><div>Mensagem</div><span class="story-phone-mic">⌁</span></div>
+              </div>
+              <div class="story-receipt" id="story-receipt" aria-hidden="true"><span class="story-receipt-check">✓</span><span><small>GESTOR DE PEDIDOS</small><strong id="story-receipt-text">Tudo em um só lugar</strong></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="story-footer">
+          <div class="story-footer-progress" aria-hidden="true"><span class="is-on"></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="story-footer-controls"><button type="button" id="story-prev" disabled aria-label="Ver etapa anterior">← Anterior</button><span id="story-count" aria-live="polite">01 / 06</span><button type="button" id="story-next">Próxima etapa <span aria-hidden="true">→</span></button></div>
+          <div class="story-footer-action"><span>Demonstração ilustrativa. Recursos conforme configuração da Brendi.</span><button type="button" data-open-lead class="story-cta">Quero essa tecnologia <span aria-hidden="true">↗</span></button></div>
+        </div>
+      </section>
     </div>
   </section>
 

@@ -8,7 +8,7 @@ menu.addEventListener("click",()=>setMenu(nav.hidden));
 $$("#mobile-nav a").forEach(el=>el.addEventListener("click",()=>setMenu(false)));
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!nav.hidden){setMenu(false);menu.focus()}});
 document.addEventListener("click",e=>{if(!nav.hidden&&!header.contains(e.target))setMenu(false)});
-matchMedia("(min-width:931px)").addEventListener("change",e=>{if(e.matches)setMenu(false)});
+const desktopMq=matchMedia("(min-width:931px)"); if(desktopMq.addEventListener)desktopMq.addEventListener("change",e=>{if(e.matches)setMenu(false)}); else if(desktopMq.addListener)desktopMq.addListener(e=>{if(e.matches)setMenu(false)});
 let ticking=false;
 function updateScroll(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max?Math.min(100,100*scrollY/max):0)+"%";header.classList.toggle("is-scrolled",scrollY>12);mobileAction.classList.toggle("is-hidden",closing.getBoundingClientRect().top<innerHeight*.75)}
 function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{updateScroll();ticking=false})}
@@ -112,7 +112,7 @@ $("#orders-output").textContent=String(o);$("#minutes-output").textContent=m+" m
 [orders,minutes,days].forEach(el=>{const v=(+el.value-+el.min)/(+el.max-+el.min)*100;el.style.background="linear-gradient(90deg,#436b48 "+v+"%,#d9e2d6 "+v+"%)"})}
 [orders,minutes,days].forEach(el=>el.addEventListener("input",calculate));calculate();
 const modal=$("#lead-modal"),form=$("#lead-form"),entry=$("#lead-entry"),result=$("#lead-result"),summary=$("#lead-summary");let previousFocus=null;
-function openLead(e){if(e)e.preventDefault();setMenu(false);previousFocus=document.activeElement;entry.hidden=false;result.hidden=true;if(!modal.open)modal.showModal();document.body.classList.add("dialog-open")}
+function openLead(e){if(e)e.preventDefault();previousFocus=document.activeElement;setMenu(false);entry.hidden=false;result.hidden=true;$("#copy-message").textContent="Copiar mensagem";if(!modal.open)modal.showModal();document.body.classList.add("dialog-open")}
 function closeLead(){if(modal.open)modal.close();document.body.classList.remove("dialog-open");if(previousFocus?.focus)previousFocus.focus({preventScroll:true})}
 $("[data-open-lead]").forEach(btn=>btn.addEventListener("click",e=>{if(btn.id==="audit-contact"){$("select[name=challenge]",form).value="Revisar e melhorar meu cardápio digital"}openLead(e)}));
 $("#lead-close").addEventListener("click",closeLead);modal.addEventListener("click",e=>{if(e.target===modal)closeLead()});modal.addEventListener("close",()=>document.body.classList.remove("dialog-open"));

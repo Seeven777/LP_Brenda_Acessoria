@@ -1,238 +1,201 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="theme-color" content="#111715"/>
-  <meta name="description" content="Transforme seu delivery com uma operação mais inteligente. Implantação personalizada da Brendi e da IA Brenda: WhatsApp, cardápio, automações e acompanhamento."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Brenda Assessoria — Seu delivery, em outro nível."/>
-  <meta property="og:description" content="A tecnologia é poderosa. Nós fazemos ela funcionar no seu negócio."/>
-  <meta property="og:image" content="/og-image.svg"/>
-  <meta property="og:locale" content="pt_BR"/>
-  <meta name="color-scheme" content="dark light"/>
-  <link rel="canonical" href="https://lpbrendaacessoria.vercel.app/"/>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preconnect" href="https://images.unsplash.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="/styles.css"/>
-  <script src="/config.js" defer></script>
-  <script src="/script.js" defer></script>
-  <title>Brenda Assessoria — Seu delivery, em outro nível.</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f5ef"><meta name="color-scheme" content="light">
+<meta name="description" content="Implantação personalizada da plataforma Brendi e da IA Brenda para restaurantes e delivery. Organize seu atendimento, cardápio, pedidos e relacionamento com assessoria especializada.">
+<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Brenda Assessoria | Seu delivery, bem cuidado.">
+<meta property="og:description" content="A tecnologia certa, configurada para a realidade do seu negócio.">
+<meta property="og:image" content="https://lpbrendaacessoria.vercel.app/og-image.svg">
+<link rel="canonical" href="https://lpbrendaacessoria.vercel.app/"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css"><script defer src="/config.js"></script><script defer src="/script.js"></script>
+<title>Brenda Assessoria — Seu delivery, bem cuidado.</title>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
-  <header class="site-header" id="site-header">
-    <div class="nav-shell wrap">
-      <a class="brand brand-new" href="#inicio" aria-label="Brenda Assessoria Digital — início"><img src="/logo-brenda.svg" width="260" height="72" alt="Brenda Assessoria Digital" class="logo-img"/></a>
-      <nav class="desktop-nav" aria-label="Navegação principal">
-        <a href="#problema">O desafio</a><a href="#solucao">A solução</a><a href="#cardapio-real">Exemplo real</a><a href="#metodo">Assessoria</a>
-      </nav>
-      <div class="nav-actions">
-        <a href="#contato" class="nav-cta" data-open-lead>Agendar diagnóstico <span aria-hidden="true">↗</span></a>
-        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu"><span></span><span></span></button>
+<a href="#conteudo" class="skip">Ir para o conteúdo</a>
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+<header class="header" id="header">
+  <div class="shell header-row">
+    <a href="#inicio" class="logo" aria-label="Brenda Assessoria, início"><span class="logo-symbol" aria-hidden="true">b<span>.</span></span><span class="logo-type">brenda<small>ASSESSORIA DIGITAL</small></span></a>
+    <nav class="nav-desktop" aria-label="Menu principal"><a href="#solucao">O que fazemos</a><a href="#na-pratica">Na prática</a><a href="#metodo">Como funciona</a><a href="#perguntas">Dúvidas</a></nav>
+    <button type="button" data-open-lead class="nav-contact">Solicitar diagnóstico <span aria-hidden="true">↗</span></button>
+    <button type="button" id="menu-toggle" class="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span></button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Menu para celular" hidden>
+    <div class="shell mobile-nav-content">
+      <a href="#solucao"><small>01</small> O que fazemos <span>↗</span></a>
+      <a href="#na-pratica"><small>02</small> Na prática <span>↗</span></a>
+      <a href="#metodo"><small>03</small> Como funciona <span>↗</span></a>
+      <a href="#provas"><small>04</small> Resultados divulgados <span>↗</span></a>
+      <a href="#perguntas"><small>05</small> Perguntas frequentes <span>↗</span></a>
+      <button type="button" data-open-lead class="button button-primary">Solicitar diagnóstico <span>↗</span></button>
+      <p>Assessoria independente para restaurantes e operações de delivery.</p>
+    </div>
+  </nav>
+</header>
+<main id="conteudo">
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="shell hero-content">
+      <div class="hero-text">
+        <p class="kicker"><span class="kicker-line"></span> CONSULTORIA E IMPLANTAÇÃO DIGITAL</p>
+        <h1 id="hero-title">Seu delivery merece uma rotina <em>mais leve.</em></h1>
+        <p class="hero-intro">Você cuida do sabor, da equipe e de cada pedido. Nós ajudamos a tecnologia a cuidar do restante.</p>
+        <p class="hero-sub">Implantamos a plataforma Brendi e a IA Brenda de forma personalizada, sem exigir que você se torne especialista em sistemas.</p>
+        <div class="hero-buttons"><button type="button" class="button button-primary" data-open-lead>Quero conhecer a assessoria <span>↗</span></button><a href="#solucao" class="button-text">Entenda como funciona <span>↓</span></a></div>
+        <div class="hero-cred"><span class="cred-icon">✳</span><span>Para quem empreende no setor de alimentação<br>e quer mais organização para crescer.</span></div>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1100&q=80" alt="Profissional preparando alimentos em uma cozinha" width="850" height="1050" fetchpriority="high">
+        <figcaption><span>ROTINA DE VERDADE / 01</span><span>Uma operação melhor começa nos detalhes.</span></figcaption>
+      </figure>
+    </div>
+    <div class="shell hero-foot"><span>ESTRATÉGIA + TECNOLOGIA + EXECUÇÃO</span><a href="#desafios">CONTINUAR EXPLORANDO ↓</a></div>
+  </section>
+
+  <section class="problem section" id="desafios">
+    <div class="shell"><div class="section-label" data-reveal><span>01 / A REALIDADE</span><i></i><span>O QUE ACONTECE NA OPERAÇÃO</span></div>
+      <div class="problem-title" data-reveal><h2>Comida boa vende.<br><em>Atendimento bem feito faz voltar.</em></h2><p>Quando tudo depende de alguém parar o que está fazendo para olhar o celular, o dia se torna mais cansativo do que precisa ser.</p></div>
+      <div class="issue-list">
+        <article data-reveal><span>01</span><h3>O WhatsApp não para.</h3><p>Responder dúvidas, repetir informações e anotar pedidos consome a atenção que deveria estar na cozinha.</p></article>
+        <article data-reveal><span>02</span><h3>O pedido chega incompleto.</h3><p>Dados desencontrados e conversas espalhadas dificultam a organização da equipe.</p></article>
+        <article data-reveal><span>03</span><h3>O cliente compra e desaparece.</h3><p>Sem relacionamento, cada venda começa como se fosse a primeira.</p></article>
       </div>
     </div>
-    <nav class="mobile-menu" id="mobile-menu" aria-label="Navegação móvel" hidden>
-      <a href="#problema">O desafio</a><a href="#solucao">A solução</a><a href="#cardapio-real">Exemplo real</a><a href="#metodo">Assessoria</a><a href="#simulador">Simulador</a><a href="#outros-servicos">Outros serviços</a><a href="#perguntas">Dúvidas</a>
-      <button class="btn btn-lime" data-open-lead>Solicitar diagnóstico ↗</button>
-    </nav>
-  </header>
+  </section>
 
-  <main id="conteudo">
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-ambient hero-ambient-a" data-parallax=".075" aria-hidden="true"></div><div class="hero-ambient hero-ambient-b" data-parallax="-.06" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="wrap hero-layout">
-        <div class="hero-copy">
-          <div class="eyebrow hero-eyebrow"><span class="status-pulse"></span> TECNOLOGIA + ESTRATÉGIA + EXECUÇÃO</div>
-          <h1 id="hero-title">Seu delivery.<br/>Seu ritmo.<br/><em>Outro nível.</em></h1>
-          <p class="hero-subtitle">Chega de perder pedidos, tempo e oportunidades. Implantamos a tecnologia da <strong>Brendi + IA Brenda</strong> para sua operação atender melhor, vender pelo próprio canal e crescer com organização.</p>
-          <div class="hero-buttons">
-            <button class="btn btn-lime btn-lg" data-open-lead>Quero transformar meu delivery <span aria-hidden="true">↗</span></button>
-            <a class="text-link text-link-light" href="#solucao"><span class="circle-play" aria-hidden="true">↓</span> Entenda como funciona</a>
-          </div>
-          <div class="hero-micro"><span class="check-spark">✳</span> Implantação personalizada <span class="micro-sep">/</span> Sem precisar dominar tecnologia</div>
-        </div>
-        <div class="hero-visual" aria-label="Demonstração conceitual de atendimento e pedidos conectados">
-          <div class="food-hero-photo"></div>
-          <div class="photo-shade"></div>
-          <div class="photo-grain"></div>
-          <div class="hero-visual-label"><span>01 / 04</span><span>VENDA COM INTELIGÊNCIA</span></div>
-          <div class="hero-chat glass-card">
-            <div class="chat-header"><span class="ai-avatar">b.</span><div><strong>Brenda <span class="verified" aria-label="Demonstração">✦</span></strong><small>Exemplo ilustrativo de atendimento</small></div><span class="online-indicator"></span></div>
-            <div class="chat-body"><div class="chat-bubble inbound">Oi! Vocês estão aceitando pedidos?</div><div class="chat-bubble outbound">Olá! Estamos sim. Quer ver nossas opções de hoje? 🍔</div><div class="chat-bubble inbound">Quero 2 burgers e uma batata!</div><div class="chat-bubble outbound bubble-last"><span class="typing-indicator"><i></i><i></i><i></i></span><span class="last-answer">Perfeito! Vou organizar seu pedido.</span></div></div>
-            <div class="chat-bottom"><span class="chat-dot"></span> A conversa vira pedido. O pedido vira operação.</div>
-          </div>
-          <div class="hero-order float-up"><span class="order-tick">✓</span><div><strong>Pedido confirmado</strong><small>Entrando na operação</small></div><span class="order-arrow">↗</span></div>
-          <div class="hero-corner-mark">B/<br/>01</div>
+  <section class="services section" id="solucao">
+    <div class="shell">
+      <div class="section-label" data-reveal><span>02 / A TECNOLOGIA</span><i></i><span>O QUE MUDA NA PRÁTICA</span></div>
+      <div class="section-lead" data-reveal><h2>Menos processos soltos.<br><em>Mais coisas funcionando juntas.</em></h2><p>A Brendi reúne recursos de atendimento, pedidos, cardápio e relacionamento. Nosso trabalho é montar essa estrutura para a sua operação.</p></div>
+      <div class="service-layout">
+        <article class="service-main" data-reveal>
+          <div class="service-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1160&q=80" alt="Interior acolhedor de restaurante em funcionamento" width="1020" height="650"></div>
+          <div class="service-body"><div><span class="step-overline">01 / ATENDIMENTO COM IA</span><h3>A Brenda conversa.<br>Você segue produzindo.</h3></div><p>Atendimento pelo WhatsApp, informações sobre produtos e suporte na jornada de compra. A operação ganha fôlego enquanto sua equipe cuida do essencial.</p></div>
+        </article>
+        <div class="service-side">
+          <article class="service-small" data-reveal><img loading="lazy" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=650&q=78" width="580" height="350" alt="Hambúrguer preparado para venda"><div><span class="step-overline">02 / CARDÁPIO DIGITAL</span><h3>Um cardápio que facilita a escolha.</h3><p>Fotos, organização de categorias, descrições e uma compra mais simples no seu canal próprio.</p><a href="#na-pratica" class="inline-link">Ver um cardápio real ↗</a></div></article>
+          <article class="service-small service-last" data-reveal><img loading="lazy" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=650&q=78" width="580" height="350" alt="Ambiente e atendimento de restaurante"><div><span class="step-overline">03 / RELACIONAMENTO</span><h3>Mais motivos para o cliente voltar.</h3><p>Campanhas, fidelização e recuperação de clientes podem ajudar sua base a comprar novamente.</p></div></article>
         </div>
       </div>
-      <div class="hero-foot wrap"><span>ROLAR PARA EXPLORAR <span class="scroll-line"></span></span><span>ESTRATÉGIA QUE SAI DO PAPEL © 2026</span></div>
-    </section>
-    <div class="ticker" aria-label="Principais áreas de atuação"><div class="ticker-track" aria-hidden="true"><span>ATENDIMENTO INTELIGENTE</span><i>✳</i><span>CARDÁPIO DIGITAL</span><i>✳</i><span>VENDA DIRETA</span><i>✳</i><span>CLIENTES QUE VOLTAM</span><i>✳</i><span>GESTÃO DE PEDIDOS</span><i>✳</i><span>ATENDIMENTO INTELIGENTE</span><i>✳</i><span>CARDÁPIO DIGITAL</span><i>✳</i><span>VENDA DIRETA</span><i>✳</i><span>CLIENTES QUE VOLTAM</span><i>✳</i><span>GESTÃO DE PEDIDOS</span><i>✳</i></div></div>
+      <p class="legal-note">Funcionalidades dependem do plano, disponibilidade e configuração da plataforma Brendi.</p>
+    </div>
+  </section>
 
-    <section class="section section-problem" id="problema">
-      <div class="wrap">
-        <div class="section-lead reveal"><span class="section-index">01 / A REALIDADE</span><span class="line"></span><span>RECONHECE ESSE CENÁRIO?</span></div>
-        <div class="problem-top"><div class="reveal"><h2 class="display-title">O problema não é<br/>sua comida.<br/><span>É tudo ao redor.</span></h2></div><p class="problem-intro reveal">Seu produto pode ser excelente. Mas uma operação sobrecarregada faz você trabalhar mais, apagar incêndios e deixar oportunidades passarem.</p></div>
-        <div class="pain-grid">
-          <article class="pain-card reveal"><div class="pain-icon">↗</div><span class="pain-number">01.</span><h3>O WhatsApp não para.</h3><p>Você está preparando pedidos e precisa interromper tudo para responder clientes, tirar dúvidas e anotar mais uma venda.</p><span class="pain-foot">TEMPO É OPERAÇÃO</span></article>
-          <article class="pain-card reveal"><div class="pain-icon">⌁</div><span class="pain-number">02.</span><h3>O pedido se perde no caminho.</h3><p>Mensagens, anotações e informações desencontradas aumentam o risco de erros e atrasos no atendimento.</p><span class="pain-foot">ORGANIZAÇÃO É ESSENCIAL</span></article>
-          <article class="pain-card reveal"><div class="pain-icon">◎</div><span class="pain-number">03.</span><h3>O cliente compra e some.</h3><p>Sem um relacionamento organizado, recuperar clientes e estimular novas compras vira uma tarefa esquecida.</p><span class="pain-foot">RECORRÊNCIA FAZ DIFERENÇA</span></article>
+  <section class="cinema" id="video">
+    <div class="cinema-poster"><img loading="lazy" src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1900&q=78" alt="Cozinheiro trabalhando na preparação de alimentos" width="1900" height="1100"></div>
+    <div class="cinema-video" id="cinema-video" aria-hidden="true" data-video-provider="vimeo" data-video-id="737763538"></div>
+    <div class="cinema-shade"></div>
+    <div class="shell cinema-copy" data-reveal><span class="kicker">CONHECEMOS A REALIDADE DE QUEM EMPREENDE</span><h2>Seu tempo vale mais<br>do que <em>apagar incêndios.</em></h2><p>O objetivo não é encher a operação de ferramentas. É fazer a tecnologia simplificar o que hoje dá trabalho.</p><a href="#metodo" class="light-link">Conheça nossa implantação <span>↗</span></a></div>
+    <div class="cinema-credit">VÍDEO DE AMBIENTAÇÃO / CENAS ILUSTRATIVAS</div>
+  </section>
+
+  <section class="experience section" id="na-pratica">
+    <div class="shell">
+      <div class="section-label" data-reveal><span>03 / EXPERIÊNCIA REAL</span><i></i><span>VEJA ANTES DE DECIDIR</span></div>
+      <div class="experience-head" data-reveal><div><h2>Não precisa<br>imaginar. <em>Pode abrir.</em></h2><p>Veja cardápios efetivamente publicados na plataforma e sinta como funciona uma jornada de compra.</p></div><span class="source-note">EXEMPLOS DA PLATAFORMA BRENDI<br>NÃO SÃO CLIENTES ATRIBUÍDOS À ASSESSORIA</span></div>
+      <div class="menus">
+        <a class="menu-card" href="https://menu.brendi.com.br/sabor-do-sul-delivery" target="_blank" rel="noopener noreferrer" data-track="cardapio_sabor" data-reveal><div class="menu-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=78" alt="Prato de refeição - imagem ilustrativa" width="900" height="600"><span class="menu-cover-id">01 / CARDÁPIO PUBLICADO</span></div><div class="menu-info"><div><h3>Sabor do Sul</h3><p>Marmitaria • Franco da Rocha, SP</p></div><span class="circle-arrow" aria-hidden="true">↗</span></div></a>
+        <a class="menu-card" href="https://menu.brendi.com.br/gssdelivery" target="_blank" rel="noopener noreferrer" data-track="cardapio_gss" data-reveal><div class="menu-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=78" alt="Hambúrguer - imagem ilustrativa" width="900" height="600"><span class="menu-cover-id">02 / CARDÁPIO PUBLICADO</span></div><div class="menu-info"><div><h3>GsS Delivery</h3><p>Explore uma experiência de pedido real</p></div><span class="circle-arrow" aria-hidden="true">↗</span></div></a>
+      </div>
+      <p class="legal-note">As fotografias nesta seção são de ambientação, não imagens dos estabelecimentos. Os botões abrem os cardápios reais, cujo conteúdo pode variar.</p>
+      <div class="feature-separator"></div>
+      <div class="story-head" data-reveal><div><span class="eyebrow-small">A JORNADA EXPLICADA</span><h3>Do primeiro “oi”<br><em>ao próximo pedido.</em></h3></div><p>Quatro etapas para entender como a experiência pode ficar mais organizada.</p></div>
+      <div class="story">
+        <div class="story-controls" id="story-controls" role="group" aria-label="Etapas da jornada">
+          <button type="button" class="story-tab is-selected" data-step="0" aria-pressed="true"><span>01</span> Atendimento</button>
+          <button type="button" class="story-tab" data-step="1" aria-pressed="false"><span>02</span> Cardápio</button>
+          <button type="button" class="story-tab" data-step="2" aria-pressed="false"><span>03</span> Pedido</button>
+          <button type="button" class="story-tab" data-step="3" aria-pressed="false"><span>04</span> Recompra</button>
         </div>
-        <div class="problem-bottom reveal"><span class="asterisk-icon">✳</span><p>Você não precisa fazer tudo sozinho.<br/><strong>Precisa de uma operação que trabalhe com você.</strong></p><a href="#solucao" class="arrow-link" aria-label="Conhecer a solução">↘</a></div>
-      </div>
-    </section>
-
-    <section class="section section-solution" id="solucao">
-      <div class="wrap">
-        <div class="section-lead reveal"><span class="section-index">02 / O NOVO JEITO</span><span class="line"></span><span>UMA OPERAÇÃO MAIS INTELIGENTE</span></div>
-        <div class="solution-heading reveal"><div><p class="kicker">A TECNOLOGIA CERTA, NO LUGAR CERTO</p><h2 class="display-title">Tudo conversa.<br/><em>Tudo flui.</em></h2></div><p>A Brendi conecta vendas, atendimento e gestão. Nós entramos para adaptar esse ecossistema à realidade do seu estabelecimento.</p></div>
-        <div class="features-grid">
-          <article class="feature-card feature-main reveal"><div class="feature-top"><span>01 / ATENDIMENTO</span><span class="mini-icon">↗</span></div><div class="feature-art chat-art"><div class="mini-conversation"><div class="mini-conversation-header"><span class="ai-avatar">b.</span><span>Brenda <small>● disponível 24h</small></span></div><div class="mini-msg left">Boa noite! Ainda está aberto?</div><div class="mini-msg right">Olá! Sim, estamos atendendo. Posso te ajudar a pedir? ✨</div><div class="mini-msg left">Quero o combo da casa!</div><div class="mini-msg right">Claro! Vou te mostrar as opções.</div></div><div class="art-float-pill">ATENDIMENTO + IA <span>✳</span></div></div><div class="feature-copy"><h3>A Brenda atende.<br/>Você ganha fôlego.</h3><p>Respostas, dúvidas e pedidos pelo WhatsApp com inteligência artificial, inclusive fora do horário em que você consegue ficar no celular.</p><span class="feature-tag">ATENDIMENTO COM IA</span></div></article>
-          <article class="feature-card feature-photo reveal"><div class="feature-top"><span>02 / VENDAS</span><span class="mini-icon">↗</span></div><div class="photo-menu"><div class="photo-menu-tag">SEU CARDÁPIO.<br/>SUA IDENTIDADE.</div><div class="phone-menu-mock"><div class="phone-speaker"></div><div class="menu-img"></div><strong>Mais pedidos, menos atrito.</strong><span>Cardápio claro e pronto para vender.</span><div class="menu-buy">Adicionar ao pedido　＋</div></div></div><div class="feature-copy"><h3>Um cardápio que dá<br/>vontade de pedir.</h3><p>Organização, fotos, categorias, complementos e uma jornada de compra mais prática no seu canal próprio.</p><div class="feature-end"><span class="feature-tag">CARDÁPIO DIGITAL</span><a href="#cardapio-real" class="feature-real-link">Ver cardápio real ↗</a></div></div></article>
-          <article class="feature-card feature-wide reveal"><div class="feature-top"><span>03 / CRESCIMENTO</span><span class="mini-icon">↗</span></div><div class="wide-feature-body"><div class="feature-copy"><h3>Seu cliente tem<br/>motivo para voltar.</h3><p>Cupons, recuperação de clientes e campanhas podem ajudar seu negócio a construir recorrência, sem depender exclusivamente de novos pedidos por aplicativos de terceiros.</p><span class="feature-tag">FIDELIZAÇÃO + MARKETING</span></div><div class="growth-art"><div class="growth-ring growth-ring-one"></div><div class="growth-ring growth-ring-two"></div><div class="growth-center">✳</div><div class="growth-chip growth-chip-one">Cliente voltou <span>↗</span></div><div class="growth-chip growth-chip-two">Campanha programada <span>●</span></div><div class="growth-chip growth-chip-three">Novo pedido <span>✓</span></div></div></div></article>
+        <div class="story-main">
+          <div class="story-editorial" id="story-editorial" aria-live="polite"><span class="story-eyebrow" id="story-eyebrow">01 / ATENDIMENTO</span><h4 id="story-title">O cliente chama. A Brenda responde.</h4><p id="story-description">Dúvidas e pedidos começam no WhatsApp. A IA pode orientar a conversa de maneira natural.</p><div class="story-footnote">Fluxo ilustrativo para explicar possibilidades da plataforma.</div></div>
+          <div class="story-preview"><div class="chat-window"><div class="chat-top"><span class="chat-avatar">b.</span><div><strong>Brenda</strong><small>Exemplo de atendimento</small></div><span class="chat-menu">•••</span></div><div id="story-messages" class="chat-messages" aria-label="Conversa ilustrativa"></div><div class="chat-composer">Mensagem <span>➤</span></div></div><span class="preview-label">SIMULAÇÃO DE INTERFACE, NÃO CAPTURA REAL</span></div>
         </div>
-        <p class="disclaimer-centered">Recursos sujeitos à configuração e às condições da plataforma Brendi. Os exemplos visuais são ilustrativos.</p>
+        <div class="story-controls-bottom"><button type="button" id="story-prev" class="story-previous" aria-label="Etapa anterior">← Anterior</button><span id="story-count">01 — 04</span><button type="button" id="story-next" class="story-next">Próxima etapa →</button></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section real-case" id="cardapio-real">
-      <div class="wrap">
-        <div class="section-lead reveal"><span class="section-index">02.5 / EXEMPLO PUBLICADO</span><span class="line"></span><span>VEJA A PLATAFORMA EM AÇÃO</span></div>
-        <div class="real-case-layout">
-          <div class="real-case-text reveal">
-            <span class="real-live"><span class="status-pulse"></span> UM CARDÁPIO REAL NA BRENDI</span>
-            <h2 class="display-title">Menos teoria.<br/><em>Mais realidade.</em></h2>
-            <p>Descubra como um cliente navega por um cardápio próprio: categorias organizadas, pratos apresentados e uma experiência de escolha que facilita o pedido.</p>
-            <div class="case-info"><span class="case-star">✳</span><div><strong>Sabor do Sul — Marmitaria</strong><small>Franco da Rocha, SP · Cardápio publicado na Brendi</small></div></div>
-            <a class="btn btn-lime btn-lg" href="https://menu.brendi.com.br/sabor-do-sul-delivery" target="_blank" rel="noopener noreferrer" data-track="cardapio_real_aberto">Explorar o cardápio real <span aria-hidden="true">↗</span></a>
-            <div class="case-extra-example"><span>MAIS UM EXEMPLO DISPONÍVEL</span><a href="https://menu.brendi.com.br/gssdelivery" target="_blank" rel="noopener noreferrer" data-track="cardapio_real_gss">Conheça também o cardápio do GsS Delivery <span aria-hidden="true">↗</span></a></div>
-            <p class="case-disclaimer">Você acessará o cardápio publicado no domínio oficial da plataforma. Exemplo de utilização da Brendi, não apresentado como cliente da nossa assessoria. Preços, disponibilidade e produtos podem mudar.</p>
-          </div>
-          <div class="case-demo reveal">
-            <div class="case-browser"><span><i></i><i></i><i></i></span><span>menu.brendi.com.br</span><span>↗</span></div>
-            <div class="case-stage"><div class="case-halo"></div><div class="case-phone">
-                <div class="case-screen-time">9:41 <span>•••</span></div>
-                <div class="case-food-banner"></div>
-                <div class="case-business"><span>SS</span><div><strong>Sabor do Sul</strong><small>Marmitaria · Franco da Rocha</small></div></div>
-                <div class="case-cats"><span>Combos</span><span>Marmitex</span><span>Bebidas</span></div>
-                <strong class="case-heading">Mais pedidos <span>↗</span></strong>
-                <div class="case-dish"><span class="case-food-img"></span><div><strong>Churrasco Misto</strong><small>Veja as opções</small></div></div>
-                <div class="case-dish"><span class="case-food-img case-food-2"></span><div><strong>Frango à parmegiana</strong><small>Escolha seu prato</small></div></div>
-              </div><div class="case-float"><b>Seu cardápio.<br/>Sua vitrine.</b><small>Experiência acessível em qualquer tela.</small></div></div>
-            <div class="case-browser-foot"><span>PRÉVIA VISUAL ILUSTRATIVA</span><a href="https://menu.brendi.com.br/sabor-do-sul-delivery" target="_blank" rel="noopener noreferrer" data-track="cardapio_real_aberto">ABRIR O SITE REAL ↗</a></div>
-          </div>
-        </div>
+  <section class="proof section" id="provas">
+    <div class="shell">
+      <div class="section-label proof-label" data-reveal><span>04 / CREDIBILIDADE</span><i></i><span>NÚMEROS PUBLICADOS PELA BRENDI</span></div>
+      <div class="proof-top" data-reveal><h2>Uma plataforma<br>com <em>história real.</em></h2><p>A Brendi publica indicadores de adoção e relatos de estabelecimentos. Esses dados pertencem à plataforma e não representam resultados da nossa assessoria.</p></div>
+      <div class="proof-stats">
+        <div data-reveal><strong>8,5 mil+</strong><span>operações na plataforma</span></div>
+        <div data-reveal><strong>50 mi+</strong><span>pedidos finalizados no canal próprio</span></div>
+        <div data-reveal><strong>70 mi+</strong><span>conversas resolvidas pela IA</span></div>
       </div>
-    </section>
-
-    <section class="story-section" id="experiencia">
-      <div class="wrap">
-        <div class="section-lead reveal story-lead"><span class="section-index">03 / NA PRÁTICA</span><span class="line"></span><span>VEJA A EXPERIÊNCIA ACONTECER</span></div>
-        <div class="story-intro reveal"><h2 class="display-title">Do primeiro “oi”<br/>ao próximo pedido.</h2><p>Uma experiência fluida para quem compra. Uma rotina mais organizada para quem vende.</p></div>
-        <div class="story-grid">
-          <div class="story-steps" id="story-steps">
-            <article class="story-step is-active" data-step="0" role="button" tabindex="0" aria-label="Exibir etapa 1 de 4"><div class="story-step-head"><span>01</span><span>ATENDIMENTO</span></div><h3>O cliente chama.<br/>A Brenda responde.</h3><p>Mensagens entram, dúvidas são esclarecidas e o cliente é conduzido para o pedido.</p></article>
-            <article class="story-step" data-step="1" role="button" tabindex="0" aria-label="Exibir etapa 2 de 4"><div class="story-step-head"><span>02</span><span>ESCOLHA</span></div><h3>Escolher fica<br/>mais fácil.</h3><p>Com o cardápio organizado, o cliente encontra produtos e opções de forma simples.</p></article>
-            <article class="story-step" data-step="2" role="button" tabindex="0" aria-label="Exibir etapa 3 de 4"><div class="story-step-head"><span>03</span><span>OPERAÇÃO</span></div><h3>O pedido chega<br/>organizado.</h3><p>O fluxo de vendas e os pedidos ficam mais claros para a equipe acompanhar a preparação.</p></article>
-            <article class="story-step" data-step="3" role="button" tabindex="0" aria-label="Exibir etapa 4 de 4"><div class="story-step-head"><span>04</span><span>RELACIONAMENTO</span></div><h3>A conversa não<br/>termina na entrega.</h3><p>Com sua base de clientes, você pode estimular recompra com ações relevantes.</p></article>
-          </div>
-          <div class="story-stage" id="story-stage" data-active-step="0">
-            <div class="stage-bg-orb"></div>
-            <div class="story-stage-top"><span class="stage-live"><i></i> EXPERIÊNCIA INTERATIVA</span><span id="stage-counter">01 / 04</span></div>
-            <div class="stage-device">
-              <div class="stage-device-top"><span>‹</span><div class="device-profile"><span class="ai-avatar">b.</span><div><strong id="device-title">Brenda • Atendimento</strong><small>online</small></div></div><span>⋮</span></div>
-              <div class="stage-device-messages" id="stage-messages" aria-live="off"></div>
-              <div class="stage-device-footer"><span>Mensagem</span><span>➤</span></div>
-            </div>
-            <div class="stage-bottom"><span>DEMONSTRAÇÃO DE FLUXO</span><div class="stage-dots" aria-label="Selecionar etapa"><button type="button" class="stage-dot active" data-show-step="0" aria-label="Etapa 1" aria-current="step"></button><button type="button" class="stage-dot" data-show-step="1" aria-label="Etapa 2"></button><button type="button" class="stage-dot" data-show-step="2" aria-label="Etapa 3"></button><button type="button" class="stage-dot" data-show-step="3" aria-label="Etapa 4"></button></div></div>
-          </div>
-        </div>
+      <div class="proof-source"><a href="https://brendi.com.br/" target="_blank" rel="noopener noreferrer">Fonte: indicadores divulgados no site oficial Brendi ↗</a><span>Números informados pela plataforma, sujeitos a atualização.</span></div>
+      <div class="cases-head" data-reveal><h3>O que a própria Brendi mostra.</h3><p>Em vez de inventar depoimentos, indicamos relatos e demonstrações publicados pelos responsáveis pela tecnologia.</p></div>
+      <div class="proof-cards">
+        <a href="https://lp.brendi.com.br/#resultados" target="_blank" rel="noopener noreferrer" class="proof-card" data-reveal><span>EXPERIÊNCIAS DIVULGADAS</span><h4>Moot Burguer</h4><p>Apresentada no site oficial com o destaque de crescimento de faturamento.</p><span class="proof-link">Ver na fonte oficial ↗</span></a>
+        <a href="https://lp.brendi.com.br/#resultados" target="_blank" rel="noopener noreferrer" class="proof-card" data-reveal><span>EXPERIÊNCIAS DIVULGADAS</span><h4>Layane</h4><p>História publicada pela Brendi sobre a evolução das vendas de seu delivery.</p><span class="proof-link">Ver na fonte oficial ↗</span></a>
+        <a href="https://brendi.com.br/creators" target="_blank" rel="noopener noreferrer" class="proof-card" data-reveal><span>CRIADORES E OPERADORES</span><h4>Quem usa no dia a dia</h4><p>Conteúdos de empreendedores e criadores que compartilham a rotina com a plataforma.</p><span class="proof-link">Conhecer os relatos ↗</span></a>
       </div>
-    </section>
+      <div class="official-demo" data-reveal><div><span class="eyebrow-small">UMA VISÃO DA PLATAFORMA</span><h3>Prefere assistir a uma demonstração?</h3><p>Veja a apresentação da Brendi no canal oficial, sem sair da nossa proposta para contratar uma implantação personalizada.</p></div><a href="https://lp.brendi.com.br/#demo" target="_blank" rel="noopener noreferrer" class="button button-outline-light" data-track="demo_brendi">Assistir à demonstração oficial <span>↗</span></a></div>
+      <p class="proof-disclaimer">Os cases, dados e vídeos pertencem à Brendi e são exibidos em suas páginas oficiais. Não representam depoimentos obtidos pela Brenda Assessoria, nem garantias de resultados.</p>
+    </div>
+  </section>
 
-    <section class="interlude">
-      <div class="interlude-photo" data-parallax=".045"></div><div class="interlude-overlay"></div>
-      <div class="wrap interlude-inner reveal"><span class="eyebrow">PARA QUEM VIVE O DIA A DIA DE UMA COZINHA</span><h2>Menos tempo<br/>apagando incêndios.<br/><em>Mais tempo fazendo<br/>o que você faz melhor.</em></h2><button class="btn btn-lime" data-open-lead>Quero essa transformação <span>↗</span></button></div>
-      <div class="interlude-aside">FEITO PARA QUEM EMPREENDE DE VERDADE.</div>
-    </section>
-
-    <section class="section section-method" id="metodo">
-      <div class="wrap">
-        <div class="section-lead reveal"><span class="section-index">04 / NOSSA ASSESSORIA</span><span class="line"></span><span>É AQUI QUE ENTRAMOS</span></div>
-        <div class="method-top"><div class="reveal"><p class="kicker">NÃO É SÓ CONTRATAR UM SISTEMA</p><h2 class="display-title">A ferramenta é<br/>o começo.<br/><em>Nós fazemos acontecer.</em></h2></div><div class="method-summary reveal"><p>Você não precisa virar especialista em configuração, automações e cardápios digitais para modernizar seu estabelecimento.</p><strong>Montamos a estrutura, organizamos os detalhes e orientamos sua equipe.</strong></div></div>
-        <div class="method-list">
-          <article class="method-item reveal"><span class="method-number">01</span><div class="method-text"><h3>Diagnóstico da operação</h3><p>Entendemos como você recebe pedidos, atende clientes e trabalha hoje para definir o que precisa ser configurado.</p></div><span class="method-label">ESTRATÉGIA</span><span class="method-plus">↗</span></article>
-          <article class="method-item reveal"><span class="method-number">02</span><div class="method-text"><h3>Implantação e personalização</h3><p>Configuramos a plataforma, estruturamos o cardápio e ajustamos a experiência de atendimento às necessidades do negócio.</p></div><span class="method-label">TECNOLOGIA</span><span class="method-plus">↗</span></article>
-          <article class="method-item reveal"><span class="method-number">03</span><div class="method-text"><h3>Apresentação que vende</h3><p>Organizamos categorias, descrições e materiais visuais. Fotografia e ações de marketing podem integrar o projeto conforme o escopo contratado.</p></div><span class="method-label">CRIATIVIDADE</span><span class="method-plus">↗</span></article>
-          <article class="method-item reveal"><span class="method-number">04</span><div class="method-text"><h3>Testes, treinamento e acompanhamento</h3><p>Testamos a jornada de compra, orientamos sua equipe e definimos os próximos ajustes para a operação evoluir.</p></div><span class="method-label">EVOLUÇÃO</span><span class="method-plus">↗</span></article>
-        </div>
-        <div class="method-callout reveal"><span class="method-callout-icon">✳</span><p>Uma tecnologia robusta merece uma implantação à altura. <strong>E o seu negócio também.</strong></p><button class="btn btn-dark" data-open-lead>Conversar sobre meu negócio ↗</button></div>
+  <section class="method section" id="metodo">
+    <div class="shell">
+      <div class="section-label" data-reveal><span>05 / NOSSO TRABALHO</span><i></i><span>IMPLANTAÇÃO COM PROPÓSITO</span></div>
+      <div class="method-heading" data-reveal><h2>A plataforma existe.<br><em>Nós fazemos funcionar para você.</em></h2><p>Contratar a tecnologia é o primeiro passo. Planejar, configurar e preparar a rotina é o que transforma o sistema em uma ferramenta útil para a sua equipe.</p></div>
+      <div class="method-grid">
+        <ol class="method-steps">
+          <li data-reveal><span>01</span><div><h3>Entender a operação</h3><p>Como seus clientes chegam, como os pedidos são feitos e onde estão os gargalos.</p></div></li>
+          <li data-reveal><span>02</span><div><h3>Implantar e configurar</h3><p>Personalização da plataforma, IA, canais e parâmetros necessários ao negócio.</p></div></li>
+          <li data-reveal><span>03</span><div><h3>Preparar a apresentação</h3><p>Organização do cardápio, categorias e materiais visuais; fotografia como serviço adicional conforme proposta.</p></div></li>
+          <li data-reveal><span>04</span><div><h3>Testar e acompanhar</h3><p>Validação do fluxo, treinamento da equipe e ajustes previstos no escopo contratado.</p></div></li>
+        </ol>
+        <figure class="method-image" data-reveal><img loading="lazy" width="900" height="1120" src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1000&q=80" alt="Profissional preparando uma refeição"><figcaption>NOSSA ENTREGA / ORGANIZAÇÃO E ACOMPANHAMENTO</figcaption></figure>
       </div>
-    </section>
+      <div class="method-banner" data-reveal><p>Uma implantação pensada para sua operação, não um pacote de configurações genéricas.</p><button class="button button-dark" type="button" data-open-lead>Conversar sobre a implantação ↗</button></div>
+    </div>
+  </section>
 
-    <section class="section section-calc" id="simulador">
-      <div class="wrap">
-        <div class="section-lead reveal"><span class="section-index">05 / SEU TEMPO IMPORTA</span><span class="line"></span><span>FAÇA UMA SIMULAÇÃO</span></div>
-        <div class="calc-layout">
-          <div class="calc-copy reveal"><p class="kicker kicker-lime">E SE VOCÊ RECUPERASSE PARTE DO SEU TEMPO?</p><h2 class="display-title">Tempo que volta<br/>para o que<br/><em>importa.</em></h2><p>Brinque com os números para visualizar o tempo que tarefas repetitivas de atendimento podem consumir no seu mês.</p><div class="calc-footnote">Esta é uma simulação matemática, não uma estimativa de economia garantida. O tempo efetivamente recuperado varia conforme o negócio e a automação.</div></div>
-          <div class="calc-panel reveal">
-            <div class="calc-panel-head"><span>SIMULADOR DE ROTINA</span><span>↗</span></div>
-            <div class="calc-control"><div class="calc-control-label"><label for="orders">Atendimentos por dia</label><output id="orders-output">40</output></div><input type="range" min="10" max="200" step="5" value="40" id="orders"/></div>
-            <div class="calc-control"><div class="calc-control-label"><label for="minutes">Minutos por atendimento</label><output id="minutes-output">3 min</output></div><input type="range" min="1" max="10" step="1" value="3" id="minutes"/></div>
-            <div class="calc-control"><div class="calc-control-label"><label for="days">Dias de operação no mês</label><output id="days-output">26</output></div><input type="range" min="20" max="31" step="1" value="26" id="days"/></div>
-            <div class="calc-result"><span>TEMPO TOTAL DEDICADO A ESSAS TAREFAS / MÊS</span><div class="calc-big"><strong id="hours-result" aria-live="polite">52</strong><span>horas</span></div><p id="calc-equivalent">O equivalente a 6,5 jornadas de 8 horas.</p></div>
-            <button class="btn btn-lime btn-full" data-open-lead>Quero entender o potencial no meu negócio <span>↗</span></button>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="simulator section" id="simulador"><div class="shell">
+    <div class="section-label" data-reveal><span>06 / OLHE PARA SUA ROTINA</span><i></i><span>UMA SIMULAÇÃO SIMPLES</span></div>
+    <div class="simulator-grid"><div class="sim-copy" data-reveal><h2>Quanto tempo você dedica <em>a responder mensagens?</em></h2><p>Faça uma conta aproximada para dimensionar o esforço diário de atendimento. O objetivo é ajudar a enxergar oportunidades de organização.</p><small>Simulação aritmética ilustrativa, não previsão de tempo economizado com automação.</small></div><div class="sim-panel" data-reveal><div class="sim-title"><span>CALCULADORA DE ROTINA</span><span>06 — 01</span></div>
+      <label class="sim-line" for="orders"><span>Atendimentos por dia <output id="orders-output">40</output></span><input type="range" id="orders" min="10" max="200" step="5" value="40"></label>
+      <label class="sim-line" for="minutes"><span>Minutos por atendimento <output id="minutes-output">3</output></span><input type="range" id="minutes" min="1" max="10" value="3"></label>
+      <label class="sim-line" for="days"><span>Dias de operação por mês <output id="days-output">26</output></span><input type="range" id="days" min="20" max="31" value="26"></label>
+      <div class="sim-result"><small>TEMPO TOTAL DEDICADO A ESSA TAREFA NO MÊS</small><div><strong id="hours-result">52</strong><span>horas</span></div><p id="calc-equivalent">Equivale a 6,5 jornadas de 8 horas.</p></div>
+      <button class="button button-primary full" data-open-lead type="button">Quero organizar esse atendimento ↗</button>
+    </div></div>
+  </div></section>
 
-    <section class="section section-fit">
-      <div class="wrap"><div class="fit-layout"><div class="fit-title reveal"><span class="section-index">06 / PARA QUEM É</span><h2>Se você serve<br/>comida, podemos<br/><em>organizar o resto.</em></h2><p>Um projeto sob medida para operações que desejam atender melhor e construir seu canal próprio de relacionamento.</p></div><div class="fit-tags reveal"><span>Hamburguerias <b>↗</b></span><span>Pizzarias <b>↗</b></span><span>Marmitarias <b>↗</b></span><span>Restaurantes <b>↗</b></span><span>Açaí e sobremesas <b>↗</b></span><span>Outros deliveries <b>↗</b></span></div></div></div>
-    </section>
+  <section class="more section" id="outros-servicos"><div class="shell"><div class="more-layout" data-reveal><div class="more-image"><img loading="lazy" width="1000" height="720" src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80" alt="Ambiente de trabalho criativo com projeto e planejamento"></div><div class="more-copy"><span class="eyebrow-small">ALÉM DA IMPLANTAÇÃO</span><h2>Seu negócio cresce.<br><em>Sua marca também pode evoluir.</em></h2><p>Sites, identidade visual, marketing e comunicação fazem parte de outras possibilidades de projeto que você pode explorar com a Seeven.</p><a class="button button-dark" href="https://seeven-lp.vercel.app" target="_blank" rel="noopener noreferrer" data-track="site_seeven">Conheça outros serviços <span>↗</span></a><small>Serviços sujeitos a escopo e contratação independente.</small></div></div></div></section>
 
-    <section class="section more-section" id="outros-servicos">
-      <div class="wrap">
-        <div class="section-lead reveal"><span class="section-index">07 / MAIS POSSIBILIDADES</span><span class="line"></span><span>SEEVEN · CRIATIVIDADE E ESTRATÉGIA</span></div>
-        <div class="more-heading reveal"><div><p class="kicker">ALÉM DA TECNOLOGIA</p><h2 class="display-title">Seu negócio evolui.<br/><em>Sua marca também.</em></h2></div><p>O crescimento não termina com uma boa implantação. Conheça a Seeven para explorar outros projetos de posicionamento, comunicação e presença digital.</p></div>
-        <div class="more-cards">
-          <article class="more-card reveal"><div class="more-icon">▣</div><span>01 / PRESENÇA</span><h3>Experiências digitais</h3><p>Sites e páginas para apresentar seu negócio de forma marcante.</p></article>
-          <article class="more-card reveal"><div class="more-icon">✳</div><span>02 / IDENTIDADE</span><h3>Marca e design</h3><p>Uma apresentação visual consistente em cada contato com seu público.</p></article>
-          <article class="more-card reveal"><div class="more-icon">◈</div><span>03 / COMUNICAÇÃO</span><h3>Marketing e conteúdo</h3><p>Comunicação que valoriza seus produtos e facilita conexões.</p></article>
-        </div>
-        <div class="more-action reveal"><div><span class="seeven-mark">S/ <em>SEEVEN</em></span><p>Explore as possibilidades diretamente no site da Seeven.</p></div><a href="https://seeven-lp.vercel.app" class="btn btn-lime btn-lg" target="_blank" rel="noopener noreferrer" data-track="site_seeven_aberto">Conhecer outros serviços <span aria-hidden="true">↗</span></a></div>
-        <small class="more-disclaimer">Projetos complementares são definidos e contratados separadamente.</small>
-      </div>
-    </section>
+  <section class="faq section" id="perguntas"><div class="shell faq-grid"><div data-reveal><div class="section-label"><span>07 / PERGUNTAS FREQUENTES</span></div><h2>Antes de começar,<br><em>vale esclarecer.</em></h2><p>Respostas diretas para as principais dúvidas sobre o serviço.</p></div><div class="faq-list" data-reveal>
+    <details><summary>Vocês são a empresa Brendi?<span>+</span></summary><p>Não. Somos uma assessoria independente. A Brendi fornece a plataforma e a IA Brenda; nosso trabalho é ajudar seu estabelecimento na implantação, organização e treinamento.</p></details>
+    <details><summary>Preciso entender de tecnologia?<span>+</span></summary><p>Não. Estruturamos a implantação e orientamos sua equipe, sempre levando em conta sua forma atual de trabalhar.</p></details>
+    <details><summary>O que está incluído na assessoria?<span>+</span></summary><p>O serviço pode envolver diagnóstico, configuração, cardápio, ajustes, testes e treinamento. Fotografia e marketing podem ser contratados conforme a proposta específica.</p></details>
+    <details><summary>Tenho que sair dos aplicativos de delivery?<span>+</span></summary><p>Não necessariamente. O canal próprio pode complementar outras plataformas, conforme as integrações disponíveis e a operação do seu estabelecimento.</p></details>
+    <details><summary>Como funcionam os custos?<span>+</span></summary><p>A assinatura da Brendi, possíveis taxas de pagamento e os honorários da assessoria são despesas diferentes. Apresentamos o escopo antes de começar.</p></details>
+    <details><summary>Como solicito uma proposta?<span>+</span></summary><p>Preencha o diagnóstico e abra a conversa no WhatsApp. A partir daí avaliamos a operação e definimos uma proposta comercial personalizada.</p></details>
+  </div></div></section>
 
-    <section class="section section-faq" id="perguntas"><div class="wrap faq-layout">
-      <div class="reveal"><div class="section-lead"><span class="section-index">07 / PERGUNTAS FREQUENTES</span></div><h2 class="display-title">Sem dúvidas.<br/><em>Sem complicação.</em></h2><p class="faq-intro">O que você precisa saber antes de transformar sua operação.</p></div>
-      <div class="faq-items reveal">
-        <details><summary>Vocês são a empresa Brendi?<span>＋</span></summary><p>Não. Somos uma assessoria independente especializada em ajudar estabelecimentos a implantar e utilizar a plataforma Brendi e a inteligência artificial Brenda. A contratação da plataforma e os nossos serviços são distintos.</p></details>
-        <details><summary>Preciso entender de tecnologia?<span>＋</span></summary><p>Não. Nosso serviço existe justamente para ajudar na implantação, configuração, organização e treinamento. Você participa das decisões importantes, sem precisar fazer todas as etapas técnicas por conta própria.</p></details>
-        <details><summary>O que a Brenda faz no WhatsApp?<span>＋</span></summary><p>Segundo a Brendi, a Brenda pode atender clientes, responder dúvidas e conduzir pedidos pelo WhatsApp, inclusive com entendimento de mensagens de áudio e imagens. O funcionamento depende das configurações e recursos contratados na plataforma.</p></details>
-        <details><summary>Vou precisar trocar de sistema ou sair do iFood?<span>＋</span></summary><p>Não necessariamente. A Brendi oferece canal próprio de vendas e integrações, dependendo das ferramentas em uso e das condições disponíveis. Avaliamos sua operação antes de propor a implantação.</p></details>
-        <details><summary>Vocês também cuidam das fotos e do cardápio?<span>＋</span></summary><p>Podemos incluir organização de produtos, descrições, categorias e suporte à apresentação visual. Serviços como fotografia profissional e marketing são definidos conforme o escopo da proposta.</p></details>
-        <details><summary>Quanto custa a implantação?<span>＋</span></summary><p>A proposta é personalizada conforme o estágio da operação e os serviços necessários. A assinatura da Brendi, eventuais investimentos em anúncios e nossos honorários devem ser considerados separadamente.</p></details>
-        <details><summary>Como começamos?<span>＋</span></summary><p>Primeiro entendemos seu estabelecimento em um diagnóstico. Depois definimos o escopo, apresentamos uma proposta e, com a aprovação, iniciamos a implantação e os testes.</p></details>
-      </div>
-    </div></section>
-
-    <section class="final-cta" id="contato"><div class="final-orb"></div><div class="wrap final-inner reveal"><span class="eyebrow"><span class="status-pulse"></span> O PRÓXIMO PASSO COMEÇA AQUI</span><h2>Seu delivery pode<br/>funcionar <em>melhor.</em><br/>Vamos conversar?</h2><p>Conte um pouco sobre seu estabelecimento. Vamos entender sua operação e desenhar o caminho para uma implantação inteligente.</p><button class="btn btn-lime btn-xl" data-open-lead>Quero meu diagnóstico <span>↗</span></button><small>Sem compromisso • Atendimento personalizado</small></div><span class="final-watermark" aria-hidden="true">b.</span></section>
-  </main>
-
-  <footer class="footer"><div class="wrap footer-top"><a class="brand brand-new footer-brand" href="#inicio" aria-label="Brenda Assessoria Digital — início"><img src="/logo-brenda.svg" width="260" height="72" alt="Brenda Assessoria Digital" class="logo-img"/></a><div class="footer-links"><a href="#solucao">A solução</a><a href="#metodo">Nossa assessoria</a><a href="#simulador">Simulador</a><a href="#cardapio-real">Cardápio real</a><a href="#outros-servicos">Outros serviços</a><a href="#perguntas">Perguntas</a><button data-open-lead>Fale com a gente ↗</button></div></div><div class="wrap footer-bottom"><p>© <span id="year">2026</span> Brenda Assessoria. Todos os direitos reservados.</p><p>Assessoria independente. Brendi e Brenda são marcas de seus respectivos titulares. Não há vínculo oficial declarado com a plataforma.</p><a href="#inicio">VOLTAR AO TOPO ↑</a></div></footer>
-  
-  <button type="button" class="floating-contact" id="floating-contact" data-open-lead aria-label="Solicitar diagnóstico"><span class="floating-dot"></span>Falar com um especialista <span aria-hidden="true">↗</span></button>
-  <dialog class="lead-modal" id="lead-modal" aria-labelledby="modal-title">
-    <div class="modal-panel"><div class="modal-top"><span class="modal-eyebrow">BRENDA / PRIMEIRO PASSO</span><button type="button" class="modal-close" id="modal-close" aria-label="Fechar formulário">✕</button></div><div id="lead-form-view"><h2 id="modal-title">Vamos falar do<br/><em>seu negócio.</em></h2><p class="modal-desc">Em menos de um minuto, você dá o primeiro passo para uma operação mais inteligente.</p><form id="lead-form"><div class="form-row"><label>Seu nome<input type="text" name="name" placeholder="Como podemos te chamar?" required minlength="2" maxlength="80" autocomplete="name"/></label><label>Nome do estabelecimento<input type="text" name="business" placeholder="Nome do seu delivery" required minlength="2" maxlength="100" autocomplete="organization"/></label></div><div class="form-row"><label>WhatsApp com DDD<input type="tel" name="phone" placeholder="(11) 99999-9999" required inputmode="tel" autocomplete="tel" minlength="10"/></label><label>Sua cidade<input type="text" name="city" placeholder="Cidade / UF" required maxlength="100" autocomplete="address-level2"/></label></div><label>Qual é seu maior desafio?<select name="challenge" required><option value="" disabled selected>Selecione uma opção</option><option>Atender mais rápido no WhatsApp</option><option>Organizar pedidos e cardápio</option><option>Atrair e fidelizar clientes</option><option>Implantar a plataforma completa</option><option>Quero entender todas as possibilidades</option></select></label><p class="form-privacy">Ao continuar, você prepara uma mensagem com os dados informados para entrar em contato com nossa assessoria. Não armazenamos os dados neste site.</p><button class="btn btn-lime btn-full" type="submit" id="lead-submit">Preparar meu contato <span>↗</span></button></form></div><div id="lead-success-view" hidden><div class="success-icon">✓</div><h2>Próximo passo<br/><em>preparado.</em></h2><p id="lead-success-copy"></p><textarea readonly id="lead-summary" rows="8" aria-label="Mensagem preparada"></textarea><div class="success-actions"><button class="btn btn-lime" id="lead-copy">Copiar mensagem</button><button class="btn btn-ghost" id="lead-new">Voltar</button></div></div></div>
-  </dialog>
-  <div class="sr-only" id="screenreader-status" role="status" aria-live="polite"></div>
-</body>
-</html>
+  <section class="closing" id="contato"><div class="shell closing-layout"><div data-reveal><span class="eyebrow-small">O PRÓXIMO PASSO É SIMPLES</span><h2>Uma operação mais leve começa com <em>uma boa conversa.</em></h2><p>Conte um pouco sobre seu negócio. Nós ajudamos a identificar por onde começar.</p><button type="button" class="button button-primary" data-open-lead>Solicitar meu diagnóstico <span>↗</span></button></div><div class="closing-image"><img loading="lazy" width="850" height="940" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1100&q=78" alt="Ambiente de restaurante preparado para atender clientes"></div></div></section>
+</main>
+<footer class="footer"><div class="shell"><div class="footer-main"><a class="logo footer-logo" href="#inicio" aria-label="Brenda Assessoria, voltar ao início"><span class="logo-symbol" aria-hidden="true">b<span>.</span></span><span class="logo-type">brenda<small>ASSESSORIA DIGITAL</small></span></a><div class="footer-nav"><a href="#solucao">Serviços</a><a href="#na-pratica">Exemplos reais</a><a href="#provas">Brendi na prática</a><a href="#metodo">Assessoria</a><a href="https://seeven-lp.vercel.app" target="_blank" rel="noopener noreferrer">Seeven ↗</a></div></div><div class="footer-end"><span>© <span id="year">2026</span> Brenda Assessoria</span><p>Assessoria independente. Não somos a Brendi nem representamos oficialmente a fabricante da plataforma. Os exemplos e dados oficiais são atribuídos às suas fontes.</p><a href="#inicio">Voltar ao topo ↑</a></div></div></footer>
+<div class="mobile-action" id="mobile-action"><button type="button" class="button button-primary" data-open-lead>Solicitar diagnóstico <span>↗</span></button></div>
+<dialog id="lead-modal" class="lead-modal" aria-labelledby="lead-title"><div class="lead-box">
+  <div class="lead-top"><span>DIAGNÓSTICO INICIAL</span><button type="button" class="lead-close" id="lead-close" aria-label="Fechar formulário">✕</button></div>
+  <div id="lead-entry"><h2 id="lead-title">Vamos entender<br><em>seu negócio.</em></h2><p>Deixe alguns dados para preparar uma mensagem de contato pelo WhatsApp.</p>
+  <form id="lead-form"><div class="form-fields">
+    <label>Seu nome <input name="name" type="text" autocomplete="name" maxlength="80" required placeholder="Seu nome"></label>
+    <label>Nome do estabelecimento <input name="business" type="text" autocomplete="organization" maxlength="100" required placeholder="Nome da empresa"></label>
+    <label>WhatsApp com DDD <input name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(11) 99999-9999"></label>
+    <label>Cidade <input name="city" type="text" autocomplete="address-level2" required maxlength="100" placeholder="Cidade / UF"></label>
+  </div><label>Principal necessidade<select name="challenge" required><option value="" selected disabled>Selecione</option><option>Organizar atendimento no WhatsApp</option><option>Implantar o cardápio digital</option><option>Automatizar o delivery</option><option>Treinar minha equipe</option><option>Quero conhecer todas as possibilidades</option></select></label>
+    <p class="lead-privacy">Ao continuar, o WhatsApp abrirá com uma mensagem já preenchida. Nada será enviado automaticamente e nenhum dado será armazenado por este site.</p>
+    <button type="submit" class="button button-primary full">Continuar para o WhatsApp ↗</button>
+  </form></div>
+  <div id="lead-result" hidden><div class="lead-success">✓</div><h2>Mensagem <em>preparada.</em></h2><p id="lead-result-text">Confira a aba do WhatsApp para enviar sua mensagem.</p><textarea id="lead-summary" readonly rows="8" aria-label="Prévia da mensagem"></textarea><div class="lead-result-actions"><button class="button button-primary" type="button" id="copy-message">Copiar mensagem</button><button class="button button-secondary" type="button" id="lead-back">Voltar</button></div></div>
+</div></dialog>
+<div id="screenreader-status" role="status" class="sr-only" aria-live="polite"></div>
+</body></html>

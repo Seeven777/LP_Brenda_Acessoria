@@ -26,6 +26,7 @@ try{
   assert(await page.locator('#hero-title').isVisible(),'Desktop hero renders');
   assert(await page.locator('#como-entregamos').count()===1,'Clear commercial proposition present');
   await page.locator('.nav-contact').click();
+  console.log('CTA DIAGNOSTICS',JSON.stringify(await page.evaluate(()=>({modalOpen:document.querySelector('#lead-modal')?.open,modalTag:document.querySelector('#lead-modal')?.tagName,ctaCount:document.querySelectorAll('[data-open-lead]').length,readyState:document.readyState,hasForm:!!document.querySelector('#lead-form')}))), 'PAGE ERRORS:',desk.errors);
   assert(await isOpen(page),'Desktop header CTA opens lead dialog');
   await page.locator('#lead-close').click();
   assert(!(await isOpen(page)),'Close button closes lead dialog');

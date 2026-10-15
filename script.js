@@ -48,7 +48,7 @@ const auditQuestions=[
  {topic:"PROMOÇÕES E MARGEM",question:"Você planeja as promoções considerando custos e margem de lucro?",hint:"Descontos frequentes sem cálculo podem comprometer o resultado da operação.",label:"Estratégia de promoções",recommendation:"Planejar ofertas pontuais e sustentáveis, evitando descontos sem controle."}
 ];
 const quiz=$("#audit-quiz"),auditResult=$("#audit-result"),auditAnswers=Array(auditQuestions.length).fill(null);
-const auditButtons=$(".audit-choice"),auditPrevious=$("#audit-prev"),auditNext=$("#audit-next");
+const auditButtons=$$(".audit-choice"),auditPrevious=$("#audit-prev"),auditNext=$("#audit-next");
 let auditPosition=0,auditComplete=false;
 function renderAudit(){
   const q=auditQuestions[auditPosition];

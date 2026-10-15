@@ -16,6 +16,15 @@ try{
  const test=await setup(1440,900),p=test.page;
  assert(await p.locator("#hero-title").isVisible(),"hero desktop");
  assert(await p.locator(".reel-card").count()===8,"oito reels");
+ assert(await p.locator(".reel-cover-preview").count()===8,"oito contêineres de capas reais");
+ assert(await p.locator(".demo-card").count()===3,"três demonstrações verificadas no canal Brendi");
+ await p.locator(".demo-card").first().click();
+ assert(await isOpen(p,"#demo-dialog"),"demonstração abre dentro do site");
+ const youtube=await p.locator("#demo-frame").getAttribute("src");
+ assert(youtube.includes("youtube-nocookie.com/embed/TBF1w3cGw2o"),"player YouTube oficial verificado");
+ await p.locator("#demo-close").click();
+ assert(!(await isOpen(p,"#demo-dialog")),"demonstração fecha");
+ assert(!(await p.locator("#demo-frame").getAttribute("src")),"vídeo para quando modal fecha");
  const ctAs=await p.locator("[data-open-lead]").all();let clicks=0;
  for(const el of ctAs){
   if(!(await el.isVisible()))continue;
@@ -24,6 +33,9 @@ try{
   await p.locator("#lead-close").click();
  }
  assert(clicks>=4,"CTAs desktop");
+ await p.locator(".reel-card").first().scrollIntoViewIfNeeded();
+ await p.waitForTimeout(200);
+ assert((await p.locator(".reel-cover-iframe").count())>0,"prévias do Instagram criadas sob demanda");
  await p.locator(".reel-card").first().click();
  assert(await isOpen(p,"#reel-dialog"),"player abre sem sair da página");
  assert((await p.locator("#reel-iframe").getAttribute("src")).includes("/DWjgf7ajewY/embed/"),"link de incorporação correto");
@@ -79,6 +91,9 @@ try{
   }
   await m.locator('.story-tab[data-step="3"]').click();
   assert((await m.locator("#story-title").textContent()).includes("relacionamento"),"tabs em "+width);
+  await m.locator(".demo-card").first().click();
+  assert(await isOpen(m,"#demo-dialog"),"demonstração no viewport "+width);
+  await m.locator("#demo-close").click();
   await m.locator(".reel-card").nth(7).click();
   assert((await m.locator("#reel-iframe").getAttribute("src")).includes("Db9XOsdRlT7"),"reel 8 em "+width);
   await m.locator("#reel-close").click();

@@ -17,3 +17,10 @@ Exemplos de cardápios: https://menu.brendi.com.br/sabor-do-sul-delivery e https
 - Testes automatizados Playwright em desktop e mobile: `tests/smoke.mjs`.
 - Demostrações audiovisuais originais da Brendi: não re-hospedar sem autorização escrita conforme https://brendi.com.br/termos-de-uso. Linkar ou incorporar apenas com fonte verificável e permissão correspondente. Nossa jornada é ilustrativa.
 - A assinatura Brendi e serviço independente de assessoria são contratações distintas. Nenhum resultado é garantido.
+
+## V5.1 — vídeos e capas oficiais
+- 3 tutoriais identificados no canal YouTube da Brendi e incorporados por iframe `youtube-nocookie.com`, carregados apenas por clique: Gestor de Pedidos (`TBF1w3cGw2o`), Visão Geral de Tráfego Pago (`3RmchouVn54`), Configuração Final de Tráfego Pago (`8D5k3VpTiVo`).
+- 8 Reels: os cartões passam a carregar previews oficiais de `instagram.com/reel/{shortcode}/embed/` dentro da área da capa. Nada é baixado ou re-hospedado. É um fallback progressivo: em contas restritas, com login exigido ou navegador com bloqueios, permanece a capa gráfica e o visitante pode clicar para assistir/abrir original.
+- Previews só iniciam ao se aproximarem da área visível; player maior abre sob demanda e para quando fecha.
+- Documentação da API oEmbed da Meta alterou disponibilidade de `thumbnail_url` em novembro de 2025. Por isso não dependemos desse campo nem inventamos fotos dos Reels.
+- Respeitar direitos do material oficial da Brendi: demonstrativos do YouTube são incorporados pelos players da editora, não copiados ao repositório.

@@ -33,7 +33,7 @@ function hideDialog(dialog){if(dialog.open)dialog.close();document.body.classLis
 
 // Licensed player embeds from verified official Brendi videos on YouTube.
 // Videos are not downloaded, hosted, or copied into this site.
-const demoDialog=$("#demo-dialog"),demoFrame=$("#demo-frame"),demoButtons=$(".demo-card");
+const demoDialog=$("#demo-dialog"),demoFrame=$("#demo-frame"),demoButtons=$$(".demo-card");
 let previousDemoFocus=null;
 function closeDemo(){
  hideDialog(demoDialog);
